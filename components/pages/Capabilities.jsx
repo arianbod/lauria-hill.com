@@ -79,8 +79,8 @@ const CapabilitiesPage = () => {
 						Ready to Leverage Our Capabilities?
 					</h2>
 					<p className='text-xl mb-8'>
-						Let's discuss how our expertise can meet your specific wire and
-						cable harness needs.
+						Let&rsquo;s discuss how our expertise can meet your specific wire
+						and cable harness needs.
 					</p>
 					<a
 						href='/contact-us'

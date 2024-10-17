@@ -1,7 +1,7 @@
 // File: components/pages/ContactUs.jsx
 
 import React from 'react';
-import { MapPin, Phone, FileText, Mail } from 'lucide-react';
+import { MapPin, Phone, FileText } from 'lucide-react';
 
 const contactPersons = [
 	{
