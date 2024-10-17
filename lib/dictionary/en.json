@@ -5,5 +5,93 @@
 		{ "title": "contact us", "url": "/contact-us", "icon": "" },
 		{ "title": "products", "url": "/products", "icon": "" },
 		{ "title": "capabilities", "url": "/capabilities", "icon": "" }
-	]
+	],
+	"homepage": {
+		"hero": {
+			"title": "Expert Cable Solutions",
+			"subtitle": "Transform Your Connectivity with Field Components",
+			"description": "Experience innovative cable and wire harness solutions, crafted with precision and expertise. Our strategic engineering approach ensures seamless integration, reliability and efficiency.",
+			"cta": "Get Started",
+			"yearsExperience": "YEARS"
+		},
+		"experience": {
+			"title": "50+ Years of Excellence",
+			"subtitle": "Field Components: Your Partner in Innovation",
+			"description": "Leverage our 50+ years of combined expertise in custom cable and wire harness manufacturing for seamless project execution.",
+			"supportItems": [
+				"Expert engineering guidance for new design development",
+				"Dedicated assembly process assistance",
+				"Timely project delivery, ensuring deadline success"
+			]
+		},
+		"whyChooseUs": {
+			"title": "Why Choose Field Components?",
+			"items": [
+				"Unparalleled industry experience",
+				"Precision craftsmanship",
+				"Reliable, high-performance cables",
+				"Personalized customer support",
+				"Rapid prototyping and production"
+			]
+		},
+		"industries": {
+			"title": "Industry Expertise",
+			"items": [
+				{
+					"name": "Automotive",
+					"icon": "🚗",
+					"description": "Tailored solutions for automotive applications."
+				},
+				{
+					"name": "Aerospace",
+					"icon": "✈️",
+					"description": "Precision cables for aerospace technology."
+				},
+				{
+					"name": "Heavy Equipment Manufacturing",
+					"icon": "🚜",
+					"description": "Robust cables for heavy-duty equipment."
+				},
+				{
+					"name": "Industrial Automation",
+					"icon": "🏭",
+					"description": "Efficient solutions for automated systems."
+				},
+				{
+					"name": "Medical Devices",
+					"icon": "🏥",
+					"description": "High-quality cables for medical equipment."
+				}
+			]
+		},
+		"benefits": {
+			"title": "Benefits",
+			"items": [
+				"Custom designs tailored to your needs",
+				"Proven technical expertise",
+				"Reliable, high-quality connections",
+				"Streamlined production, reduced costs",
+				"Enhanced product performance"
+			]
+		},
+		"partnership": {
+			"title": "Partner with Field Components for:",
+			"items": [
+				"Strategic product design",
+				"Technical support",
+				"Custom manufacturing solutions"
+			]
+		},
+		"cta": {
+			"title": "Empowering Your Connections, Enhancing Your Business",
+			"description": "Ready to transform your connectivity solutions?",
+			"buttons": {
+				"contact": "Contact Us",
+				"explore": "Explore Products"
+			}
+		},
+		"alt": {
+			"backgroundImage": "Wire and Cable Background"
+		}
+	}
 }
