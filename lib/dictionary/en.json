@@ -1,0 +1,8 @@
+{
+	"menuitems": [
+		{ "title": "Home", "url": "/", "icon": "" },
+		{ "title": "about us", "url": "/about-us", "icon": "" },
+		{ "title": "contact us", "url": "/contact-us", "icon": "" },
+		{ "title": "products", "url": "/products", "icon": "" }
+	]
+}
