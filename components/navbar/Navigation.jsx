@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, Home, Users, Phone, ShoppingBag } from 'lucide-react';
 import dic from '@/lib/dictionary/en.json';
+import Image from 'next/image';
 
 const Navigation = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,21 +44,29 @@ const Navigation = () => {
 	return (
 		<nav className='font-sans'>
 			{/* Desktop Navigation */}
-			<div className='hidden lg:flex lg:flex-row justify-between items-center w-full fixed top-0 left-0 h-20 bg-gradient-to-r from-amber-400 to-amber-600   shadow-lg z-50'>
+			<div className='hidden lg:flex lg:flex-row justify-between items-center w-full fixed top-0 left-0 h-20 bg-gradient-to-r from-blue-900 to-blue-800 text-gray-100 shadow-lg z-50'>
 				<div className='flex items-center'>
-					<div className='w-80 h-full flex items-center justify-center border-r border-amber-300 pr-4  text-amber-600/75'>
-						<div className='relative mr-4'>
-							<div className='absolute inset-0 bg-white rounded-full opacity-20 animate-pulse'></div>
-							<div className='relative flex flex-col items-center justify-center w-16 h-16 border-4 border-white rounded-full'>
-								<span className='text-3xl font-extrabold leading-none'>50</span>
-								<span className='text-xl font-bold leading-none'>+</span>
-							</div>
-						</div>
+					<div className='w-80 h-full flex items-center justify-center border-r border-blue-700 pr-4'>
+						{/* <div className='relative mr-4'>
+              <div className='absolute inset-0 bg-gray-300 rounded-full opacity-20 animate-pulse'></div>
+              <div className='relative flex flex-col items-center justify-center w-16 h-16 border-4 border-gray-300 rounded-full'>
+                <span className='text-3xl font-extrabold leading-none text-gray-100'>50</span>
+                <span className='text-xl font-bold leading-none text-gray-100'>+</span>
+              </div>
+            </div>
+			*/}
+						<Image
+							src='/images/logo.png'
+							width={200}
+							height={200}
+							alt='logo'
+							className='w-16 h-16'
+						/>
 						<div className='flex flex-col'>
-							<span className='text-xs uppercase tracking-wider text-amber-700/40 font-bold '>
+							<span className='text-xs uppercase tracking-wider text-gray-300'>
 								Years of Excellence
 							</span>
-							<span className='text-2xl font-bold tracking-tight'>
+							<span className='text-2xl font-bold tracking-tight text-gray-100'>
 								Lauria and Hill
 							</span>
 						</div>
@@ -67,7 +76,7 @@ const Navigation = () => {
 							<Link
 								key={item.title}
 								href={item.url}
-								className='flex items-center space-x-2 hover:text-amber-200 transition-colors duration-200 capitalize font-semibold'>
+								className='flex items-center space-x-2 hover:text-gray-300 transition-colors duration-200 capitalize font-semibold'>
 								{getIcon(item.icon)}
 								<span>{item.title}</span>
 							</Link>
@@ -76,14 +85,12 @@ const Navigation = () => {
 				</div>
 			</div>
 
-			{/* Mobile Navigation (unchanged) */}
+			{/* Mobile Navigation */}
 			{isMobile && (
 				<>
 					<button
 						onClick={toggleMenu}
-						className={`lg:hidden fixed top-4 left-4 z-50 p-2 bg-amber-500 rounded-full shadow-lg text-white transition-all ${
-							isMenuOpen && 'translate-x-64'
-						}`}>
+						className='lg:hidden fixed top-4 left-4 z-50 p-2 bg-blue-800 rounded-full shadow-lg text-gray-100'>
 						{isMenuOpen ? <X size={24} /> : <Menu size={24} />}
 					</button>
 					{isMenuOpen && (
@@ -94,23 +101,21 @@ const Navigation = () => {
 					<div
 						className={`lg:hidden fixed inset-y-0 left-0 transform ${
 							isMenuOpen ? 'translate-x-0' : '-translate-x-full'
-						} transition-transform duration-300 ease-in-out w-72 bg-gradient-to-b from-amber-400 to-amber-600 overflow-y-auto z-40`}>
+						} transition-transform duration-300 ease-in-out w-72 bg-gradient-to-b from-blue-900 to-blue-800 overflow-y-auto z-40`}>
 						<div className='p-6'>
-							<div className='w-80 h-full flex place-items-center border-r border-amber-300 pr-4  text-amber-600/75'>
-								<div className='relative mr-4'>
-									<div className='absolute inset-0 bg-white rounded-full opacity-20 animate-pulse'></div>
-									<div className='relative flex flex-col items-center justify-center w-16 h-16 border-4 border-white rounded-full  text-amber-600/75'>
-										<span className='text-3xl font-extrabold leading-none '>
-											50
-										</span>
-										<span className='text-xl font-bold leading-none'>+</span>
+							<div className='mb-8 text-center'>
+								<div className='flex items-center justify-center'>
+									<div className='relative mr-2'>
+										<div className='flex flex-col items-center justify-center w-12 h-12 border-2 border-gray-300 rounded-full'>
+											<span className='text-2xl font-extrabold leading-none text-gray-100'>
+												50
+											</span>
+											<span className='text-lg font-bold leading-none text-gray-100'>
+												+
+											</span>
+										</div>
 									</div>
-								</div>
-								<div className='flex flex-col '>
-									<span className='text-xs uppercase tracking-wider  text-amber-700/40 font-bold'>
-										Years of Excellence
-									</span>
-									<span className='text-2xl font-bold tracking-tight'>
+									<span className='text-xl font-bold text-gray-100'>
 										Lauria and Hill
 									</span>
 								</div>
@@ -120,7 +125,7 @@ const Navigation = () => {
 									<li key={item.title}>
 										<Link
 											href={item.url}
-											className='flex items-center space-x-4 text-white hover:text-amber-200 transition-colors duration-200  capitalize font-semibold'>
+											className='flex items-center space-x-4 text-gray-100 hover:text-gray-300 transition-colors duration-200 capitalize font-semibold'>
 											{getIcon(item.icon)}
 											<span>{item.title}</span>
 										</Link>
