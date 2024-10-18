@@ -55,14 +55,14 @@ const HomePage = () => {
 								width={400}
 								height={400}
 								alt='50+'
-								className='rounded-full drop-shadow-lg w-80 h-80'
+								className=' drop-shadow-lg w-80 h-80'
 							/>
 							{/* <span className='absolute bottom-4 text-sm font-medium text-gray-300'>
 								{homepage.hero.yearsExperience}
 							</span> */}
 						</div>
 					</div>
-					<h1 className='text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2'>
+					<h1 className='text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 '>
 						Welcome to Lauria and Hill!
 					</h1>
 					<h2 className='text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6'>
