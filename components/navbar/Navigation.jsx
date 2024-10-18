@@ -43,10 +43,24 @@ const Navigation = () => {
 	return (
 		<nav className='font-sans'>
 			{/* Desktop Navigation */}
-			<div className='hidden lg:flex lg:flex-row justify-between items-center w-full fixed top-0 left-0 h-16 bg-gradient-to-r from-amber-400 to-amber-600 text-white shadow-lg z-50'>
+			<div className='hidden lg:flex lg:flex-row justify-between items-center w-full fixed top-0 left-0 h-20 bg-gradient-to-r from-amber-400 to-amber-600   shadow-lg z-50'>
 				<div className='flex items-center'>
-					<div className='w-64 h-full flex items-center justify-center border-r border-amber-300'>
-						<span className='text-2xl font-bold'>Logo</span>
+					<div className='w-80 h-full flex items-center justify-center border-r border-amber-300 pr-4  text-amber-600/75'>
+						<div className='relative mr-4'>
+							<div className='absolute inset-0 bg-white rounded-full opacity-20 animate-pulse'></div>
+							<div className='relative flex flex-col items-center justify-center w-16 h-16 border-4 border-white rounded-full'>
+								<span className='text-3xl font-extrabold leading-none'>50</span>
+								<span className='text-xl font-bold leading-none'>+</span>
+							</div>
+						</div>
+						<div className='flex flex-col'>
+							<span className='text-xs uppercase tracking-wider text-amber-700/40 font-bold '>
+								Years of Excellence
+							</span>
+							<span className='text-2xl font-bold tracking-tight'>
+								Lauria and Hill
+							</span>
+						</div>
 					</div>
 					<div className='flex space-x-8 ml-8'>
 						{dic.menuitems.map((item) => (
@@ -62,12 +76,14 @@ const Navigation = () => {
 				</div>
 			</div>
 
-			{/* Mobile Navigation */}
+			{/* Mobile Navigation (unchanged) */}
 			{isMobile && (
 				<>
 					<button
 						onClick={toggleMenu}
-						className='lg:hidden fixed top-4 left-4 z-50 p-2 bg-amber-500 rounded-full shadow-lg text-white'>
+						className={`lg:hidden fixed top-4 left-4 z-50 p-2 bg-amber-500 rounded-full shadow-lg text-white transition-all ${
+							isMenuOpen && 'translate-x-64'
+						}`}>
 						{isMenuOpen ? <X size={24} /> : <Menu size={24} />}
 					</button>
 					{isMenuOpen && (
@@ -80,8 +96,24 @@ const Navigation = () => {
 							isMenuOpen ? 'translate-x-0' : '-translate-x-full'
 						} transition-transform duration-300 ease-in-out w-72 bg-gradient-to-b from-amber-400 to-amber-600 overflow-y-auto z-40`}>
 						<div className='p-6'>
-							<div className='mb-8 text-center'>
-								<span className='text-2xl font-bold text-white'>Logo</span>
+							<div className='w-80 h-full flex place-items-center border-r border-amber-300 pr-4  text-amber-600/75'>
+								<div className='relative mr-4'>
+									<div className='absolute inset-0 bg-white rounded-full opacity-20 animate-pulse'></div>
+									<div className='relative flex flex-col items-center justify-center w-16 h-16 border-4 border-white rounded-full  text-amber-600/75'>
+										<span className='text-3xl font-extrabold leading-none '>
+											50
+										</span>
+										<span className='text-xl font-bold leading-none'>+</span>
+									</div>
+								</div>
+								<div className='flex flex-col '>
+									<span className='text-xs uppercase tracking-wider  text-amber-700/40 font-bold'>
+										Years of Excellence
+									</span>
+									<span className='text-2xl font-bold tracking-tight'>
+										Lauria and Hill
+									</span>
+								</div>
 							</div>
 							<ul className='space-y-4'>
 								{dic.menuitems.map((item) => (
