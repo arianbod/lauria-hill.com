@@ -30,6 +30,7 @@ const HomePage = () => {
 								width={400}
 								height={400}
 								alt='50+'
+								className='shadow-2xl shadow-slate-600'
 							/>
 							{/* <span className='absolute bottom-4 text-sm font-medium text-gray-300'>
 								{homepage.hero.yearsExperience}
@@ -55,7 +56,7 @@ const HomePage = () => {
 			</section>
 
 			{/* Experience Section */}
-			<section className='py-16 px-4 sm:px-6 lg:px-8 bg-blue-800 text-gray-100'>
+			<section className='py-16 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-7xl mx-auto'>
 					<div className='text-center mb-12'>
 						<h2 className='text-4xl font-bold mb-4'>
@@ -78,9 +79,9 @@ const HomePage = () => {
 			</section>
 
 			{/* Why Choose Us Section */}
-			<section className='py-16 px-4 sm:px-6 lg:px-8 bg-gray-100'>
+			<section className='py-16 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-7xl mx-auto'>
-					<h2 className='text-3xl font-bold text-blue-900 mb-8 text-center'>
+					<h2 className='text-3xl font-bold mb-8 text-center'>
 						{homepage.whyChooseUs.title}
 					</h2>
 					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
@@ -88,8 +89,8 @@ const HomePage = () => {
 							<div
 								key={index}
 								className='flex items-start'>
-								<CheckCircle className='flex-shrink-0 h-6 w-6 text-blue-700 mt-1' />
-								<p className='ml-3 text-lg text-gray-700'>{item}</p>
+								<CheckCircle className='flex-shrink-0 h-6 w-6 mt-1' />
+								<p className='ml-3 text-lg '>{item}</p>
 							</div>
 						))}
 					</div>
@@ -97,9 +98,9 @@ const HomePage = () => {
 			</section>
 
 			{/* Industries Section */}
-			<section className='py-16 px-4 sm:px-6 lg:px-8 bg-blue-50'>
+			<section className='py-16 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-7xl mx-auto'>
-					<h2 className='text-3xl font-bold text-blue-900 mb-8 text-center'>
+					<h2 className='text-3xl font-bold mb-8 text-center'>
 						{homepage.industries.title}
 					</h2>
 					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
@@ -119,9 +120,9 @@ const HomePage = () => {
 			</section>
 
 			{/* Benefits Section */}
-			<section className='py-16 px-4 sm:px-6 lg:px-8 bg-gray-100'>
+			<section className='py-16 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-7xl mx-auto'>
-					<h2 className='text-3xl font-bold text-blue-900 mb-8 text-center'>
+					<h2 className='text-3xl font-bold mb-8 text-center'>
 						{homepage.benefits.title}
 					</h2>
 					<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
@@ -129,8 +130,8 @@ const HomePage = () => {
 							<div
 								key={index}
 								className='flex items-start'>
-								<CheckCircle className='flex-shrink-0 h-6 w-6 text-blue-700 mt-1' />
-								<p className='ml-3 text-lg text-gray-700'>{benefit}</p>
+								<CheckCircle className='flex-shrink-0 h-6 w-6  mt-1' />
+								<p className='ml-3 text-lg'>{benefit}</p>
 							</div>
 						))}
 					</div>
@@ -138,16 +139,16 @@ const HomePage = () => {
 			</section>
 
 			{/* Partnership Section */}
-			<section className='py-16 px-4 sm:px-6 lg:px-8 bg-blue-100'>
+			<section className='py-16 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-7xl mx-auto'>
-					<h2 className='text-3xl font-bold text-blue-900 mb-8 text-center'>
+					<h2 className='text-3xl font-bold mb-8 text-center'>
 						{homepage.partnership.title}
 					</h2>
 					<div className='flex flex-col items-center'>
 						{homepage.partnership.items.map((item, index) => (
 							<p
 								key={index}
-								className='text-xl text-blue-800 mb-4'>
+								className='text-xl mb-4'>
 								{item}
 							</p>
 						))}
@@ -158,7 +159,7 @@ const HomePage = () => {
 			{/* CTA Section */}
 			<section className='py-16 px-4 sm:px-6 lg:px-8 bg-gray-100'>
 				<div className='max-w-3xl mx-auto text-center'>
-					<h2 className='text-3xl font-bold text-blue-900 mb-4'>
+					<h2 className='text-3xl font-bold text-silver-900 mb-4'>
 						{homepage.cta.title}
 					</h2>
 					<p className='text-xl text-gray-600 mb-8'>

@@ -29,7 +29,7 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}>
 				<Navigation />
-				<main className='min-h-screen bg-gradient-to-b from-slate-50 to-slate-100  text-slate-800'>
+				<main className='min-h-screen bg-gradient-to-b from-slate-700 to-gray-700 text-white'>
 					{children}
 				</main>
 			</body>

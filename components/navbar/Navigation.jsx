@@ -63,11 +63,11 @@ const Navigation = () => {
 							className='w-16 h-16 rounded-full'
 						/>
 						<div className='flex flex-col'>
-							<span className='text-xs uppercase tracking-wider text-gray-300'>
-								Years of Excellence
-							</span>
 							<span className='text-2xl font-bold tracking-tight text-gray-100'>
 								Lauria and Hill
+							</span>
+							<span className='text-xs uppercase tracking-wider text-gray-300'>
+								Technologies
 							</span>
 						</div>
 					</div>
@@ -103,7 +103,7 @@ const Navigation = () => {
 					<div
 						className={`lg:hidden fixed inset-y-0 left-0 transform ${
 							isMenuOpen ? 'translate-x-0' : '-translate-x-full'
-						} transition-transform duration-300 ease-in-out w-72 bg-gradient-to-b from-blue-900 to-blue-800 overflow-y-auto z-40`}>
+						} transition-transform duration-300 ease-in-out w-72 bg-gradient-to-b from-slate-700 to-silver-900 overflow-y-auto z-40`}>
 						<div className='p-6'>
 							<div className='mb-8 text-center'>
 								<div className='flex items-center justify-center'>
@@ -118,9 +118,14 @@ const Navigation = () => {
 											/>
 										</div>
 									</div>
-									<span className='text-xl font-bold text-gray-100'>
-										Lauria and Hill
-									</span>
+									<div className='flex flex-col'>
+										<span className='text-xl font-bold text-gray-100'>
+											Lauria and Hill
+										</span>
+										<span className='text-left text-md font-semibold text-gray-400'>
+											Technologies
+										</span>
+									</div>
 								</div>
 							</div>
 							<ul className='space-y-4'>
