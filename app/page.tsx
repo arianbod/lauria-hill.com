@@ -23,14 +23,14 @@ const HomePage = () => {
 				</div>
 				<div className='relative z-10 text-center px-4 sm:px-6 lg:px-8 drop-shadow-lg'>
 					<div className='mb-8 inline-block'>
-						<div className='relative inline-flex items-center justify-center w-64 h-64 overflow-hidden rounded-3xl '>
+						<div className='relative inline-flex items-center justify-center overflow-hidden rounded-3xl '>
 							{/* <span className='text-4xl font-bold text-gray-100'>50+</span> */}
 							<Image
 								src='/images/logo1.jpg'
 								width={400}
 								height={400}
 								alt='50+'
-								className='shadow-2xl shadow-slate-600'
+								className=' rounded-full  drop-shadow-lg w-72 border-8 border-b-4 pt-2 border-t-slate-500  border-r-slate-500 border-l-slate-500 border-b-slate-700 h-72'
 							/>
 							{/* <span className='absolute bottom-4 text-sm font-medium text-gray-300'>
 								{homepage.hero.yearsExperience}
