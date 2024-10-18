@@ -10,15 +10,16 @@ const HomePage = () => {
 	return (
 		<>
 			{/* Hero Section */}
-			<section className='relative h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden'>
+			<section className='relative h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-700 to-slate-900'>
+				{' '}
 				<div className='absolute inset-0 z-0'>
-					<Image
+					{/* <Image
 						src='/images/bg.png'
 						alt={homepage.alt.backgroundImage}
 						layout='fill'
 						objectFit='cover'
 						className='opacity-30'
-					/>
+					/> */}
 				</div>
 				<div className='relative z-10 text-center px-4 sm:px-6 lg:px-8 drop-shadow-lg'>
 					<div className='mb-8 inline-block'>
@@ -35,13 +36,13 @@ const HomePage = () => {
 							</span> */}
 						</div>
 					</div>
-					<h1 className='text-4xl sm:text-5xl md:text-6xl font-bold text-blue-900 mb-6'>
+					<h1 className='text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6'>
 						{homepage.hero.title}
 					</h1>
-					<p className='text-xl sm:text-2xl md:text-3xl text-blue-800 mb-4'>
+					<p className='text-xl sm:text-2xl md:text-3xl text-white mb-4'>
 						{homepage.hero.subtitle}
 					</p>
-					<p className='text-lg text-blue-700 mb-8 max-w-3xl mx-auto'>
+					<p className='text-lg text-white mb-8 max-w-3xl mx-auto'>
 						{homepage.hero.description}
 					</p>
 					<Link
