@@ -56,11 +56,11 @@ const Navigation = () => {
             </div>
 			*/}
 						<Image
-							src='/images/logo.png'
+							src='/images/50+.png'
 							width={200}
 							height={200}
 							alt='logo'
-							className='w-16 h-16'
+							className='w-16 h-16 rounded-full'
 						/>
 						<div className='flex flex-col'>
 							<span className='text-xs uppercase tracking-wider text-gray-300'>
@@ -90,7 +90,9 @@ const Navigation = () => {
 				<>
 					<button
 						onClick={toggleMenu}
-						className='lg:hidden fixed top-4 left-4 z-50 p-2 bg-blue-800 rounded-full shadow-lg text-gray-100'>
+						className={`lg:hidden fixed top-4 left-4 z-50 p-2 bg-blue-800 rounded-full shadow-lg text-gray-100 transition-all ${
+							isMenuOpen && 'translate-x-64'
+						}`}>
 						{isMenuOpen ? <X size={24} /> : <Menu size={24} />}
 					</button>
 					{isMenuOpen && (
@@ -107,12 +109,13 @@ const Navigation = () => {
 								<div className='flex items-center justify-center'>
 									<div className='relative mr-2'>
 										<div className='flex flex-col items-center justify-center w-12 h-12 border-2 border-gray-300 rounded-full'>
-											<span className='text-2xl font-extrabold leading-none text-gray-100'>
-												50
-											</span>
-											<span className='text-lg font-bold leading-none text-gray-100'>
-												+
-											</span>
+											<Image
+												src='/images/50+.png'
+												width={200}
+												height={200}
+												alt='logo'
+												className='w-16 h-16 rounded-full'
+											/>
 										</div>
 									</div>
 									<span className='text-xl font-bold text-gray-100'>

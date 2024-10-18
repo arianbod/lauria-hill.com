@@ -13,7 +13,7 @@ const HomePage = () => {
 			<section className='relative h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden'>
 				<div className='absolute inset-0 z-0'>
 					<Image
-						src='/images/wire-background.jpg'
+						src='/images/bg.png'
 						alt={homepage.alt.backgroundImage}
 						layout='fill'
 						objectFit='cover'
@@ -22,11 +22,17 @@ const HomePage = () => {
 				</div>
 				<div className='relative z-10 text-center px-4 sm:px-6 lg:px-8'>
 					<div className='mb-8 inline-block'>
-						<div className='relative inline-flex items-center justify-center w-40 h-40 overflow-hidden bg-blue-800 rounded-full'>
-							<span className='text-4xl font-bold text-gray-100'>50+</span>
-							<span className='absolute bottom-4 text-sm font-medium text-gray-300'>
+						<div className='relative inline-flex items-center justify-center w-52 h-52 overflow-hiddenrounded-3xl '>
+							{/* <span className='text-4xl font-bold text-gray-100'>50+</span> */}
+							<Image
+								src='/images/logo.png'
+								width={300}
+								height={300}
+								alt='50+'
+							/>
+							{/* <span className='absolute bottom-4 text-sm font-medium text-gray-300'>
 								{homepage.hero.yearsExperience}
-							</span>
+							</span> */}
 						</div>
 					</div>
 					<h1 className='text-4xl sm:text-5xl md:text-6xl font-bold text-blue-900 mb-6'>
