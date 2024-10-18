@@ -1,25 +1,50 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import en from '@/lib/dictionary/en.json';
 
 const { homepage } = en;
+const TypewriterEffect = ({ sentences }) => {
+	const [currentSentence, setCurrentSentence] = useState('');
+	const [currentIndex, setCurrentIndex] = useState(0);
+	const [isDeleting, setIsDeleting] = useState(false);
 
+	useEffect(() => {
+		const interval = setInterval(() => {
+			const current = sentences[currentIndex];
+
+			if (!isDeleting && currentSentence === current) {
+				setTimeout(() => setIsDeleting(true), 1000);
+			} else if (isDeleting && currentSentence === '') {
+				setIsDeleting(false);
+				setCurrentIndex((prevIndex) => (prevIndex + 1) % sentences.length);
+			} else {
+				setCurrentSentence((prev) =>
+					isDeleting ? prev.slice(0, -1) : current.slice(0, prev.length + 1)
+				);
+			}
+		}, 50);
+
+		return () => clearInterval(interval);
+	}, [currentSentence, currentIndex, isDeleting, sentences]);
+
+	return <span className='text-blue-300'>{currentSentence}</span>;
+};
 const HomePage = () => {
+	const typewriterSentences = [
+		'Innovative Cable Solutions',
+		'Precision Engineered Connections',
+		'Reliable Wire Harness Manufacturing',
+	];
+
 	return (
 		<>
 			{/* Hero Section */}
 			<section className='relative h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-700 to-gray-700'>
-				{' '}
 				<div className='absolute inset-0 z-0'>
-					{/* <Image
-						src='/images/bg.png'
-						alt={homepage.alt.backgroundImage}
-						layout='fill'
-						objectFit='cover'
-						className='opacity-30'
-					/> */}
+					{/* Background image code remains the same */}
 				</div>
 				<div className='relative z-10 text-center px-4 sm:px-6 lg:px-8 drop-shadow-lg'>
 					<div className='mb-8 inline-block'>
@@ -37,9 +62,12 @@ const HomePage = () => {
 							</span> */}
 						</div>
 					</div>
-					<h1 className='text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6'>
-						{homepage.hero.title}
+					<h1 className='text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2'>
+						Welcome to Lauria and Hill!
 					</h1>
+					<h2 className='text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6'>
+						<TypewriterEffect sentences={typewriterSentences} />
+					</h2>
 					<p className='text-xl sm:text-2xl md:text-3xl text-white mb-4'>
 						{homepage.hero.subtitle}
 					</p>
