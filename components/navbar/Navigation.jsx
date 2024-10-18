@@ -1,16 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import {
-	Menu,
-	X,
-	Home,
-	Users,
-	Phone,
-	ShoppingBag,
-	Info,
-	Cog,
-} from 'lucide-react';
+import { Menu, X, Home, Phone, ShoppingBag, Info, Cog } from 'lucide-react';
 import dic from '@/lib/dictionary/en.json';
 import Image from 'next/image';
 

@@ -55,7 +55,7 @@ const HomePage = () => {
 								width={400}
 								height={400}
 								alt='50+'
-								className=' rounded-full  drop-shadow-lg w-72 border-8 border-b-4 pt-2 border-button-normal h-72'
+								className='rounded-full drop-shadow-lg w-80 h-80'
 							/>
 							{/* <span className='absolute bottom-4 text-sm font-medium text-gray-300'>
 								{homepage.hero.yearsExperience}
