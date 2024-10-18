@@ -169,7 +169,7 @@ const HomePage = () => {
 			{/* Partnership Section */}
 			<section className='py-16 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-7xl mx-auto'>
-					<h2 className='text-3xl font-bold mb-8 text-center'>
+					<h2 className='text-2xl font-bold mb-8 text-center'>
 						{homepage.partnership.title}
 					</h2>
 					<div className='flex flex-col items-center'>
