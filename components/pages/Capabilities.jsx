@@ -14,9 +14,9 @@ const capabilities = [
 
 const CapabilitiesPage = () => {
 	return (
-		<div className='min-h-screen bg-gradient-to-b from-amber-50 to-amber-100'>
+		<>
 			{/* Hero Section */}
-			<section className='bg-amber-600 text-white py-20 px-4 sm:px-6 lg:px-8'>
+			<section className='px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-4xl mx-auto text-center'>
 					<h1 className='text-4xl font-bold mb-4'>Our Capabilities</h1>
 					<p className='text-xl'>
@@ -45,7 +45,7 @@ const CapabilitiesPage = () => {
 						</div>
 					</div>
 
-					<h2 className='text-3xl font-bold text-amber-800 mb-8 text-center'>
+					<h2 className='text-3xl font-bold mb-8 text-center'>
 						Our Specialized Services
 					</h2>
 					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
@@ -73,7 +73,7 @@ const CapabilitiesPage = () => {
 			</section>
 
 			{/* CTA Section */}
-			<section className='bg-amber-600 text-white py-16 px-4 sm:px-6 lg:px-8'>
+			<section className='bg-white text-slate-900 py-16 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-3xl mx-auto text-center'>
 					<h2 className='text-3xl font-bold mb-4'>
 						Ready to Leverage Our Capabilities?
@@ -84,12 +84,12 @@ const CapabilitiesPage = () => {
 					</p>
 					<a
 						href='/contact-us'
-						className='inline-block px-6 py-3 border border-white text-lg font-medium rounded-md hover:bg-white hover:text-amber-600 transition duration-150 ease-in-out'>
+						className='inline-block px-6 py-3 border border-white bg-slate-800 text-white text-lg font-medium rounded-md hover:bg-slate-800/25 hover:text-slate-800 transition duration-150 ease-in-out'>
 						Contact Us Today
 					</a>
 				</div>
 			</section>
-		</div>
+		</>
 	);
 };
 

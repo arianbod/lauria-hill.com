@@ -20,9 +20,9 @@ const AboutUsPage = () => {
 	const yearsOfExperience = currentYear - 1973;
 
 	return (
-		<div className='min-h-screen bg-amber-50'>
+		<div className=''>
 			{/* Hero Section */}
-			<section className='bg-amber-600 text-white py-20 px-4 sm:px-6 lg:px-8'>
+			<section className=' py-20 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-4xl mx-auto text-center'>
 					<h1 className='text-4xl font-bold mb-4'>
 						About Lauria and Hill Technologies
@@ -37,21 +37,19 @@ const AboutUsPage = () => {
 			{/* Company History */}
 			<section className='py-16 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-3xl mx-auto'>
-					<h2 className='text-3xl font-bold text-amber-800 mb-6'>
-						Our History
-					</h2>
-					<p className='text-lg text-gray-700 mb-4'>
+					<h2 className='text-3xl font-bold  mb-6'>Our History</h2>
+					<p className='text-lg  mb-4'>
 						Founded in 1973, Lauria and Hill Technologies has been a leader in
 						manufacturing electrical wire harnesses and cable assemblies for{' '}
 						{yearsOfExperience} years.
 					</p>
-					<p className='text-lg text-gray-700 mb-4'>
+					<p className='text-lg  mb-4'>
 						We are proud of our long-standing commitment to quality and
 						innovation in the electrical and electronic fields. Our experienced
 						staff brings a wide range of expertise to assist you with your
 						specific needs.
 					</p>
-					<p className='text-lg text-gray-700'>
+					<p className='text-lg '>
 						Located within 5km of Toronto International Airport, we are
 						well-positioned to serve clients across North America and beyond.
 					</p>
@@ -59,9 +57,9 @@ const AboutUsPage = () => {
 			</section>
 
 			{/* Industries Served */}
-			<section className='py-16 px-4 sm:px-6 lg:px-8 bg-white'>
+			<section className='py-16 px-4 sm:px-6 lg:px-8 '>
 				<div className='max-w-7xl mx-auto'>
-					<h2 className='text-3xl font-bold text-amber-800 mb-8 text-center'>
+					<h2 className='text-3xl font-bold  mb-8 text-center'>
 						Industries We Serve
 					</h2>
 					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
@@ -85,7 +83,7 @@ const AboutUsPage = () => {
 							</div>
 						))}
 					</div>
-					<p className='text-center text-lg text-gray-600 mt-8'>
+					<p className='text-center text-lg  mt-8 text-slate-400'>
 						And many more...
 					</p>
 				</div>
@@ -94,7 +92,7 @@ const AboutUsPage = () => {
 			{/* Certifications */}
 			<section className='py-16 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-3xl mx-auto'>
-					<h2 className='text-3xl font-bold text-amber-800 mb-8 text-center'>
+					<h2 className='text-3xl font-bold  mb-8 text-center'>
 						Our Certifications
 					</h2>
 					<div className='flex justify-center items-center space-x-8'>
@@ -115,17 +113,7 @@ const AboutUsPage = () => {
 			</section>
 
 			{/* Contact Information */}
-			<section className='bg-amber-600 text-white py-16 px-4 sm:px-6 lg:px-8'>
-				<div className='max-w-3xl mx-auto text-center'>
-					<h2 className='text-3xl font-bold mb-6'>Get in Touch</h2>
-					<p className='text-xl mb-4'>TORONTO</p>
-					<p className='text-lg mb-2'>416-674-1490 Main</p>
-					<p className='text-lg mb-4'>1-800-334-7824 Toll Free</p>
-					<p className='text-sm'>
-						&copy; Copyright {currentYear}. All rights reserved
-					</p>
-				</div>
-			</section>
+			
 		</div>
 	);
 };

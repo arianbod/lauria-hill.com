@@ -84,11 +84,9 @@ const ProductsPage = () => {
 	};
 
 	return (
-		<div className='min-h-screen bg-gradient-to-b from-amber-100 to-amber-200 p-8'>
+		<div className=' p-8'>
 			<div className='max-w-6xl mx-auto'>
-				<h1 className='text-4xl font-bold text-amber-800 mb-8 text-center'>
-					Our Products
-				</h1>
+				<h1 className='text-4xl font-bold mb-8 text-center'>Our Products</h1>
 
 				<div className='bg-white rounded-lg shadow-md p-6 mb-12'>
 					<p className='text-lg text-gray-700 text-center'>
@@ -132,7 +130,7 @@ const ProductsPage = () => {
 				<div className='mt-12 text-center'>
 					<a
 						href='/contact-us'
-						className='inline-block px-6 py-3 bg-amber-600 text-white font-semibold rounded-md hover:bg-amber-700 transition duration-300'>
+						className='inline-block px-6 py-3 bg-button-normal hover:bg-button-hover text-white font-semibold rounded-md transition duration-300'>
 						Contact Us for Custom Solutions
 					</a>
 				</div>

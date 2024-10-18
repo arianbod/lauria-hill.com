@@ -43,10 +43,10 @@ const HomePage = () => {
 		<>
 			{/* Hero Section */}
 			<section className='relative h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-700 to-gray-700'>
-				<div className='absolute inset-0 z-0'>
+				<div className='absolute inset-0 '>
 					{/* Background image code remains the same */}
 				</div>
-				<div className='relative z-10 text-center px-4 sm:px-6 lg:px-8 drop-shadow-lg'>
+				<div className='relative  text-center px-4 sm:px-6 lg:px-8 drop-shadow-lg'>
 					<div className='mb-8 inline-block'>
 						<div className='relative inline-flex items-center justify-center overflow-hidden rounded-3xl '>
 							{/* <span className='text-4xl font-bold text-gray-100'>50+</span> */}
@@ -76,7 +76,7 @@ const HomePage = () => {
 					</p>
 					<Link
 						href='/contact-us'
-						className='inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-gray-100 bg-blue-800 hover:bg-blue-700 transition duration-150 ease-in-out'>
+						className='inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md bg-button-normal hover:bg-button-hover text-button-text  transition duration-150 ease-in-out select-none'>
 						{homepage.hero.cta}
 						<ArrowRight className='ml-2 -mr-1 h-5 w-5' />
 					</Link>
@@ -196,12 +196,12 @@ const HomePage = () => {
 					<div className='space-x-4'>
 						<Link
 							href='/contact-us'
-							className='inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-gray-100 bg-blue-800 hover:bg-blue-700 transition duration-150 ease-in-out'>
+							className='inline-flex select-none items-center px-6 py-3 border border-transparent text-base font-medium rounded-md bg-button-normal hover:bg-button-hover text-button-text transition duration-150 ease-in-out'>
 							{homepage.cta.buttons.contact}
 						</Link>
 						<Link
 							href='/products'
-							className='inline-flex items-center px-6 py-3 border border-blue-800 text-base font-medium rounded-md text-blue-800 bg-white hover:bg-blue-50 transition duration-150 ease-in-out'>
+							className='inline-flex select-none items-center px-6 py-3 border border-button-normal text-base font-medium rounded-md text-button-normal bg-white hover:bg-button-text transition duration-150 ease-in-out'>
 							{homepage.cta.buttons.explore}
 						</Link>
 					</div>

@@ -23,18 +23,14 @@ const contactPersons = [
 
 const ContactUs = () => {
 	return (
-		<div className='min-h-screen bg-gradient-to-b from-amber-50 to-amber-100'>
+		<div className=''>
 			<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
-				<h1 className='text-4xl font-bold text-amber-800 mb-8 text-center'>
-					Contact Us
-				</h1>
+				<h1 className='text-4xl font-bold mb-8 text-center'>Contact Us</h1>
 
 				<div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
 					{/* Contact Information */}
-					<div className='bg-white rounded-lg shadow-md p-6'>
-						<h2 className='text-2xl font-semibold text-amber-700 mb-6'>
-							Get in Touch
-						</h2>
+					<div className='bg-white text-amber-700 rounded-lg shadow-md p-6'>
+						<h2 className='text-2xl font-semibold  mb-6'>Get in Touch</h2>
 
 						{/* Contact Persons */}
 						<div className='mb-8'>
@@ -55,9 +51,8 @@ const ContactUs = () => {
 								</div>
 							))}
 						</div>
-
 						{/* Address and Contact Details */}
-						<div>
+						<div className='text-black/75'>
 							<div className='flex items-start mb-4'>
 								<MapPin className='w-5 h-5 text-amber-600 mt-1 mr-2' />
 								<div>

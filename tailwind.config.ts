@@ -24,6 +24,11 @@ const config: Config = {
 					'900': '#545454',
 					'950': '#363636',
 				},
+				button: {
+					normal: '#1E293B',
+					text: '#F3F4F6',
+					hover: '#363636',
+				},
 			},
 		},
 	},
