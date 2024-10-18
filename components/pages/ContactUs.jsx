@@ -84,7 +84,7 @@ const ContactUs = () => {
 						</h2>
 						<div className='aspect-w-16 aspect-h-9'>
 							<iframe
-								src={`https://www.google.com/maps/embed/v1/place?q=43.74711,-79.60814&key=${process.env.GOOGLE_MAPS_API_KEY}&zoom=14`}
+								src={`https://www.google.com/maps/embed/v1/place?q=43.74711,-79.60814&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&zoom=14`}
 								width='100%'
 								height='450'
 								style={{ border: 0 }}
