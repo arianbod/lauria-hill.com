@@ -17,17 +17,17 @@ const HomePage = () => {
 						alt={homepage.alt.backgroundImage}
 						layout='fill'
 						objectFit='cover'
-						className='opacity-20'
+						className='opacity-30'
 					/>
 				</div>
-				<div className='relative z-10 text-center px-4 sm:px-6 lg:px-8'>
+				<div className='relative z-10 text-center px-4 sm:px-6 lg:px-8 drop-shadow-lg'>
 					<div className='mb-8 inline-block'>
-						<div className='relative inline-flex items-center justify-center w-52 h-52 overflow-hiddenrounded-3xl '>
+						<div className='relative inline-flex items-center justify-center w-64 h-64 overflow-hidden rounded-3xl '>
 							{/* <span className='text-4xl font-bold text-gray-100'>50+</span> */}
 							<Image
-								src='/images/logo.png'
-								width={300}
-								height={300}
+								src='/images/logo1.jpg'
+								width={400}
+								height={400}
 								alt='50+'
 							/>
 							{/* <span className='absolute bottom-4 text-sm font-medium text-gray-300'>
