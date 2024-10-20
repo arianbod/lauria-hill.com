@@ -19,6 +19,7 @@ const certifications = [
 		logo: '/images/certificates/tuv-rheinland-logo.png',
 	},
 	{ name: 'UL', logo: '/images/certificates/ul-logo.png' },
+	{ name: 'certech', logo: '/images/certificates/certech.png' },
 ];
 
 const AboutUsPage = () => {
