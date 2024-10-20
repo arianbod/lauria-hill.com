@@ -6,7 +6,7 @@ import { ArrowRight, CheckCircle } from 'lucide-react';
 import en from '@/lib/dictionary/en.json';
 
 const { homepage } = en;
-const TypewriterEffect = ({ sentences }) => {
+const TypewriterEffect = ({ sentences, className }) => {
 	const [currentSentence, setCurrentSentence] = useState('');
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [isDeleting, setIsDeleting] = useState(false);
@@ -30,7 +30,9 @@ const TypewriterEffect = ({ sentences }) => {
 		return () => clearInterval(interval);
 	}, [currentSentence, currentIndex, isDeleting, sentences]);
 
-	return <span className='text-blue-300'>{currentSentence}</span>;
+	return (
+		<span className={`text-blue-300 ${className}`}>{currentSentence}</span>
+	);
 };
 const HomePage = () => {
 	const typewriterSentences = [
@@ -38,7 +40,15 @@ const HomePage = () => {
 		'Precision Engineered Connections',
 		'Reliable Wire Harness Manufacturing',
 	];
-
+	const experienceSentences = [
+		'50+ Years of Industry Expertise',
+		'Half a Century of Excellence',
+		'Five Decades of Innovation',
+		'Unrivaled 50-Year Track Record',
+		'Pioneering Solutions Since 1973',
+		'50 Years of Custom Cable Mastery',
+		'Leading the Industry for 50+ Years',
+	];
 	return (
 		<>
 			{/* Hero Section */}
@@ -94,8 +104,11 @@ const HomePage = () => {
 							alt='50+'
 							className='mx-auto drop-shadow-2xl rounded-full mb-4'
 						/>
-						<h2 className='text-4xl font-bold mb-4'>
-							{homepage.experience.title}
+						<h2 className='text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 h-8'>
+							<TypewriterEffect
+								sentences={experienceSentences}
+								className='text-amber-500'
+							/>
 						</h2>
 						<p className='text-2xl mb-4'>{homepage.experience.subtitle}</p>
 						<p className='text-xl'>{homepage.experience.description}</p>
@@ -133,16 +146,16 @@ const HomePage = () => {
 			</section>
 
 			{/* Industries Section */}
-			<section className='py-16 px-4 sm:px-6 lg:px-8'>
+			<section className='py-24 px-4 sm:px-6 lg:px-8 '>
 				<div className='max-w-7xl mx-auto'>
-					<h2 className='text-3xl font-bold mb-8 text-center'>
+					<h2 className='text-4xl font-bold mb-12 text-center animate-fade-in-down'>
 						{homepage.industries.title}
 					</h2>
-					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 justify-center'>
 						{homepage.industries.items.map((industry, index) => (
 							<div
 								key={index}
-								className='bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center'>
+								className='bg-white pb-6 rounded-xl overflow-hidden shadow-md flex flex-col items-center text-center'>
 								<div className='text-4xl mb-4'>
 									<Image
 										src={industry.src}
@@ -150,6 +163,7 @@ const HomePage = () => {
 										height={400}
 										objectFit='cover'
 										alt={industry.name}
+										className='rounded-b-full rounded-t-2xl w-full '
 									/>
 									{/* {industry.icon} */}
 								</div>
@@ -162,7 +176,6 @@ const HomePage = () => {
 					</div>
 				</div>
 			</section>
-
 			{/* Benefits Section */}
 			<section className='py-16 px-4 sm:px-6 lg:px-8 border-b-2 mx-4'>
 				<div className='max-w-7xl mx-auto'>
