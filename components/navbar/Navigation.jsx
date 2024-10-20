@@ -105,9 +105,9 @@ const Navigation = () => {
 							<div className='mb-8 text-center'>
 								<div className='flex items-center justify-center'>
 									<div className='relative mr-2'>
-										<div className='flex flex-col items-center justify-center w-12 h-12 border-2 border-gray-300 rounded-full select-none'>
+										<div className='flex flex-col items-center justify-center w-16 h-12 rounded-full select-none'>
 											<Image
-												src='/images/50+.png'
+												src='/images/logo4.png'
 												width={200}
 												height={200}
 												alt='logo'
