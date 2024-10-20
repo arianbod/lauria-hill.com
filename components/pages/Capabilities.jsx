@@ -41,10 +41,17 @@ const CapabilitiesPage = () => {
 							program.
 						</p>
 						<div className='bg-amber-100 border-l-4 border-amber-500 p-4'>
-							<p className='text-amber-700 font-semibold'>
+							<p className='text-amber-700 font-semibold text-center'>
 								Our 20,000 square foot facility is equipped to handle all your
 								manufacturing needs, including custom stocking programs.
 							</p>
+							<Image
+								width={800}
+								height={400}
+								src='/images/env.png'
+								className='rounded-xl mx-auto my-4 drop-shadow-lg  w-fit'
+								alt='environment'
+							/>
 						</div>
 					</div>
 
