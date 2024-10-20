@@ -2,17 +2,23 @@ import React from 'react';
 import Image from 'next/image';
 
 const industries = [
-	{ name: 'Transportation', image: '/images/transportation.jpg' },
-	{ name: 'Medical', image: '/images/medical.jpg' },
-	{ name: 'Security', image: '/images/security.jpg' },
-	{ name: 'Commercial Equipment', image: '/images/commercial-equipment.jpg' },
-	{ name: 'Communications', image: '/images/communications.jpg' },
+	{ name: 'Transportation', image: '/images/services/transportation.jpeg' },
+	{ name: 'Medical', image: '/images/services/medical.jpeg' },
+	{ name: 'Security', image: '/images/services/security.jpeg' },
+	{
+		name: 'Commercial Equipment',
+		image: '/images/services/commercial-equipment.jpeg',
+	},
+	{ name: 'Communications', image: '/images/services/communications.jpeg' },
 ];
 
 const certifications = [
-	{ name: 'CSA Group', logo: '/images/csa-group-logo.png' },
-	{ name: 'TÜV Rheinland', logo: '/images/tuv-rheinland-logo.png' },
-	{ name: 'UL', logo: '/images/ul-logo.png' },
+	{ name: 'CSA Group', logo: '/images/certificates/csa-group-logo.png' },
+	{
+		name: 'TÜV Rheinland',
+		logo: '/images/certificates/tuv-rheinland-logo.png',
+	},
+	{ name: 'UL', logo: '/images/certificates/ul-logo.png' },
 ];
 
 const AboutUsPage = () => {
@@ -23,11 +29,18 @@ const AboutUsPage = () => {
 		<div className=''>
 			{/* Hero Section */}
 			<section className=' py-20 px-4 sm:px-6 lg:px-8'>
-				<div className='max-w-4xl mx-auto text-center'>
-					<h1 className='text-4xl font-bold mb-4'>
+				<div className='max-w-4xl mx-auto text-center flex flex-col gap-2'>
+					<Image
+						width={200}
+						height={200}
+						src='/images/50+.png'
+						alt='50+'
+						className='mx-auto drop-shadow-2xl rounded-full'
+					/>
+					<h1 className='text-4xl font-bold mb-4 border-t-2 border-t-amber-500 pt-4 mt-4 w-fit text-center mx-auto px-4 rounded-full'>
 						About Lauria and Hill Technologies
 					</h1>
-					<p className='text-xl'>
+					<p className='text-xl '>
 						Proudly serving the electrical and electronic industries for over{' '}
 						{yearsOfExperience} years
 					</p>
@@ -66,7 +79,7 @@ const AboutUsPage = () => {
 						{industries.map((industry, index) => (
 							<div
 								key={index}
-								className='bg-amber-50 rounded-lg overflow-hidden shadow-md'>
+								className='bg-silver-50 rounded-lg overflow-hidden shadow-md'>
 								<div className='h-48 relative'>
 									<Image
 										src={industry.image}
@@ -76,7 +89,7 @@ const AboutUsPage = () => {
 									/>
 								</div>
 								<div className='p-4'>
-									<h3 className='text-xl font-semibold text-amber-700'>
+									<h3 className='text-xl font-semibold text-slate-700'>
 										{industry.name}
 									</h3>
 								</div>
@@ -95,25 +108,24 @@ const AboutUsPage = () => {
 					<h2 className='text-3xl font-bold  mb-8 text-center'>
 						Our Certifications
 					</h2>
-					<div className='flex justify-center items-center space-x-8'>
+					<div className='flex justify-center items-center space-x-8 bg-white rounded-full py-2'>
 						{certifications.map((cert, index) => (
-							<div
+							<Image
 								key={index}
-								className='w-24 h-24 relative'>
-								<Image
-									src={cert.logo}
-									alt={cert.name}
-									layout='fill'
-									objectFit='contain'
-								/>
-							</div>
+								src={cert.logo}
+								alt={cert.name}
+								// layout='fill'
+								objectFit='contain'
+								className=' h-fit  max-h-24 w-fit'
+								width={100}
+								height={100}
+							/>
 						))}
 					</div>
 				</div>
 			</section>
 
 			{/* Contact Information */}
-			
 		</div>
 	);
 };

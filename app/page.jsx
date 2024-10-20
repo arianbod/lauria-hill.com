@@ -51,11 +51,11 @@ const HomePage = () => {
 						<div className='relative inline-flex items-center justify-center overflow-hidden rounded-3xl '>
 							{/* <span className='text-4xl font-bold text-gray-100'>50+</span> */}
 							<Image
-								src='/images/logo3.png'
+								src='/images/logo4.png'
 								width={400}
 								height={400}
 								alt='50+'
-								className=' drop-shadow-lg w-80 h-80'
+								className='w-80 h-80 bg-slate-600 rounded-full drop-shadow-xl'
 							/>
 							{/* <span className='absolute bottom-4 text-sm font-medium text-gray-300'>
 								{homepage.hero.yearsExperience}
@@ -107,7 +107,7 @@ const HomePage = () => {
 			</section>
 
 			{/* Why Choose Us Section */}
-			<section className='py-16 px-4 sm:px-6 lg:px-8'>
+			<section className='py-16 px-4 sm:px-6 lg:px-8 border-t-2 mx-4'>
 				<div className='max-w-7xl mx-auto'>
 					<h2 className='text-3xl font-bold mb-8 text-center'>
 						{homepage.whyChooseUs.title}
@@ -148,7 +148,7 @@ const HomePage = () => {
 			</section>
 
 			{/* Benefits Section */}
-			<section className='py-16 px-4 sm:px-6 lg:px-8'>
+			<section className='py-16 px-4 sm:px-6 lg:px-8 border-b-2 mx-4'>
 				<div className='max-w-7xl mx-auto'>
 					<h2 className='text-3xl font-bold mb-8 text-center'>
 						{homepage.benefits.title}

@@ -50,7 +50,7 @@ const Navigation = () => {
 				<div className='flex items-center'>
 					<div className='w-80 h-full flex gap-4 items-center justify-center border-r border-button-700 pr-4'>
 						<Image
-							src='/images/50+.png'
+							src='/images/logo4.png'
 							width={200}
 							height={200}
 							alt='logo'
@@ -65,12 +65,15 @@ const Navigation = () => {
 							</span>
 						</div>
 					</div>
-					<div className='flex space-x-8 ml-8 gap-8'>
+					<div className='flex space-x-8 ml-8 xl:gap-8 lg:gap-4'>
 						{dic.menuitems.map((item) => (
 							<Link
 								key={item.title}
 								href={item.url}
-								className='flex items-center space-x-2 hover:text-gray-400 transition-all hover:translate-y-1 duration-200 capitalize font-semibold'>
+								className={`flex items-center space-x-2 hover:text-gray-400 transition-all hover:translate-y-1 duration-200 capitalize font-semibold ${
+									item.url === '/contact-us' &&
+									'bg-amber-500 hover:text-amber-200 px-4 py-2 rounded-full drop-shadow-xl text-slate-800 xl:absolute right-5 top-5 animate-pulse'
+								}`}>
 								{getIcon(item.title)}
 								<span>{item.title}</span>
 							</Link>

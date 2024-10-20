@@ -2,14 +2,17 @@ import React from 'react';
 import Image from 'next/image';
 
 const capabilities = [
-	{ name: 'Engineering Support', image: '/images/engineering-support.jpg' },
-	{ name: 'Panel Builds', image: '/images/panel-builds.jpg' },
+	{
+		name: 'Engineering Support',
+		image: '/images/services/engineer-support.jpg',
+	},
+	{ name: 'Panel Builds', image: '/images/services/panel-build.jpeg' },
 	{
 		name: 'Automated Wire Cutting/Stripping/Terminating',
-		image: '/images/automated-wire-processing.jpg',
+		image: '/images/services/wire-cutting.webp',
 	},
-	{ name: 'Soldering', image: '/images/soldering.jpg' },
-	{ name: 'Wire Stripping/Twisting', image: '/images/wire-stripping.jpg' },
+	{ name: 'Soldering', image: '/images/services/soldering.webp' },
+	{ name: 'Wire Stripping/Twisting', image: '/images/services/wire-2.webp' },
 ];
 
 const CapabilitiesPage = () => {
