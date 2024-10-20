@@ -40,26 +40,31 @@
 				{
 					"name": "Automotive",
 					"icon": "🚗",
+					"src": "/images/automative.png",
 					"description": "Tailored solutions for automotive applications."
 				},
 				{
 					"name": "Aerospace",
 					"icon": "✈️",
+					"src": "/images/aerospace.png",
 					"description": "Precision cables for aerospace technology."
 				},
 				{
 					"name": "Heavy Equipment Manufacturing",
 					"icon": "🚜",
+					"src": "/images/heavy.png",
 					"description": "Robust cables for heavy-duty equipment."
 				},
 				{
 					"name": "Industrial Automation",
 					"icon": "🏭",
+					"src": "/images/automation.png",
 					"description": "Efficient solutions for automated systems."
 				},
 				{
 					"name": "Medical Devices",
 					"icon": "🏥",
+					"src": "/images/medical.png",
 					"description": "High-quality cables for medical equipment."
 				}
 			]

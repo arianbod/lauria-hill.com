@@ -136,7 +136,16 @@ const HomePage = () => {
 							<div
 								key={index}
 								className='bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center'>
-								<div className='text-4xl mb-4'>{industry.icon}</div>
+								<div className='text-4xl mb-4'>
+									<Image
+										src={industry.src}
+										width={400}
+										height={400}
+										objectFit='cover'
+										alt={industry.name}
+									/>
+									{/* {industry.icon} */}
+								</div>
 								<h3 className='text-xl font-semibold text-blue-800 mb-2'>
 									{industry.name}
 								</h3>

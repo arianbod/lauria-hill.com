@@ -40,8 +40,8 @@ const CapabilitiesPage = () => {
 							building that can facilitate all your needs including a stocking
 							program.
 						</p>
-						<div className='bg-amber-100 border-l-4 border-amber-500 p-4'>
-							<p className='text-amber-700 font-semibold text-center'>
+						<div className='bg-silver-100 border-l-4 border-slate-500 p-4'>
+							<p className='text-slate-700 font-semibold text-center'>
 								Our 20,000 square foot facility is equipped to handle all your
 								manufacturing needs, including custom stocking programs.
 							</p>
