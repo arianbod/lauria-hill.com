@@ -16,7 +16,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
 	title: 'Lauria and Hill',
-	description: 'Lauria and Hill',
+	description: `Transform Your Connectivity with Field Components`,
 };
 const currentYear = new Date().getFullYear();
 
