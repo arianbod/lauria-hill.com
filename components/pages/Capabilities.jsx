@@ -65,7 +65,7 @@ const CapabilitiesPage = () => {
 									/>
 								</div>
 								<div className='p-4'>
-									<h3 className='text-xl font-semibold text-amber-700'>
+									<h3 className='text-xl font-semibold text-slate-700'>
 										{capability.name}
 									</h3>
 								</div>
