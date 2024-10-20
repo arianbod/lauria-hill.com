@@ -60,10 +60,10 @@ const ProductsPage = () => {
 	const [selectedProduct, setSelectedProduct] = useState(null);
 	const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-	const openGallery = (product) => {
-		setSelectedProduct(product);
-		setCurrentImageIndex(0);
-	};
+	// const openGallery = (product) => {
+	// 	setSelectedProduct(product);
+	// 	setCurrentImageIndex(0);
+	// };
 
 	const closeGallery = () => {
 		setSelectedProduct(null);
