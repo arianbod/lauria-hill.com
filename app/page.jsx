@@ -31,7 +31,7 @@ const TypewriterEffect = ({ sentences, className }) => {
 	}, [currentSentence, currentIndex, isDeleting, sentences]);
 
 	return (
-		<span className={`text-blue-300 ${className}`}>{currentSentence}</span>
+		<span className={` ${className}`}>{currentSentence}</span>
 	);
 };
 const HomePage = () => {
@@ -76,7 +76,10 @@ const HomePage = () => {
 						Welcome to Lauria and Hill!
 					</h1>
 					<h2 className='text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 h-8'>
-						<TypewriterEffect sentences={typewriterSentences} />
+						<TypewriterEffect
+							sentences={typewriterSentences}
+							className='text-blue-300'
+						/>
 					</h2>
 					<p className='text-xl sm:text-2xl md:text-3xl text-white mb-4'>
 						{homepage.hero.subtitle}
