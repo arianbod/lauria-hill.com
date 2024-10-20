@@ -44,16 +44,16 @@ const products = [
 			'/images/gallery/circuit-3.jpg',
 		],
 	},
-	{
-		name: 'Lighting Solutions',
-		image: '/images/gallery/lighting-solutions-1.png',
-		description: 'Innovative lighting solutions for various environments.',
-		gallery: [
-			'/images/gallery/lighting-1.jpg',
-			'/images/gallery/lighting-2.jpg',
-			'/images/gallery/lighting-3.jpg',
-		],
-	},
+	// {
+	// 	name: 'Lighting Solutions',
+	// 	image: '/images/gallery/lighting-solutions-1.png',
+	// 	description: 'Innovative lighting solutions for various environments.',
+	// 	gallery: [
+	// 		'/images/gallery/lighting-1.jpg',
+	// 		'/images/gallery/lighting-2.jpg',
+	// 		'/images/gallery/lighting-3.jpg',
+	// 	],
+	// },
 ];
 
 const ProductsPage = () => {
@@ -104,7 +104,8 @@ const ProductsPage = () => {
 							className='bg-white rounded-lg shadow-md overflow-hidden'>
 							<div
 								className='h-48 relative cursor-pointer'
-								onClick={() => openGallery(product)}>
+								// onClick={() => openGallery(product)}
+							>
 								<Image
 									src={product.image}
 									alt={product.name}
@@ -117,11 +118,11 @@ const ProductsPage = () => {
 									{product.name}
 								</h3>
 								<p className='text-gray-600 mt-2'>{product.description}</p>
-								<button
+								{/* <button
 									onClick={() => openGallery(product)}
 									className='mt-4 text-amber-600 hover:text-amber-800 transition duration-300'>
 									View Gallery
-								</button>
+								</button> */}
 							</div>
 						</div>
 					))}
