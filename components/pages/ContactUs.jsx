@@ -3,6 +3,7 @@
 import React from 'react';
 import { MapPin, Phone, FileText } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const contactPersons = [
 	{
@@ -71,10 +72,12 @@ const ContactUs = () => {
 								<FileText className='w-5 h-5 text-slate-900 mr-2' />
 								<p>Fax: 416-674-8539</p>
 							</div>
-							<div className='flex items-center'>
+							<Link
+								className='flex items-center'
+								href='callto:1-800-334-7824'>
 								<Phone className='w-5 h-5 text-slate-900 mr-2' />
 								<p>Toll Free: 1-800-334-7824</p>
-							</div>
+							</Link>
 						</div>
 					</div>
 
