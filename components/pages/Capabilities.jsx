@@ -49,7 +49,7 @@ const CapabilitiesPage = () => {
 								width={800}
 								height={400}
 								src='/images/env.png'
-								className='rounded-xl mx-auto my-4 drop-shadow-lg  w-fit'
+								className='rounded-xl mx-auto my-4 drop-shadow-lg w-fit'
 								alt='environment'
 							/>
 						</div>
@@ -58,26 +58,30 @@ const CapabilitiesPage = () => {
 					<h2 className='text-3xl font-bold mb-8 text-center'>
 						Our Specialized Services
 					</h2>
-					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-						{capabilities.map((capability, index) => (
-							<div
-								key={index}
-								className='bg-white rounded-lg overflow-hidden shadow-md'>
-								<div className='h-48 relative'>
-									<Image
-										src={capability.image}
-										alt={capability.name}
-										layout='fill'
-										objectFit='cover'
-									/>
+					<div className='flex justify-center'>
+						<div className='flex flex-wrap justify-center gap-8 max-w-6xl'>
+							{capabilities.map((capability, index) => (
+								<div
+									key={index}
+									className='flex-shrink-0 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] max-w-sm'>
+									<div className='bg-white rounded-lg overflow-hidden shadow-md h-full'>
+										<div className='h-48 relative'>
+											<Image
+												src={capability.image}
+												alt={capability.name}
+												layout='fill'
+												objectFit='cover'
+											/>
+										</div>
+										<div className='p-4'>
+											<h3 className='text-xl font-semibold text-slate-700 text-center'>
+												{capability.name}
+											</h3>
+										</div>
+									</div>
 								</div>
-								<div className='p-4'>
-									<h3 className='text-xl font-semibold text-slate-700'>
-										{capability.name}
-									</h3>
-								</div>
-							</div>
-						))}
+							))}
+						</div>
 					</div>
 				</div>
 			</section>

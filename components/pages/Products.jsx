@@ -44,26 +44,11 @@ const products = [
 			'/images/gallery/circuit-3.jpg',
 		],
 	},
-	// {
-	// 	name: 'Lighting Solutions',
-	// 	image: '/images/gallery/lighting-solutions-1.png',
-	// 	description: 'Innovative lighting solutions for various environments.',
-	// 	gallery: [
-	// 		'/images/gallery/lighting-1.jpg',
-	// 		'/images/gallery/lighting-2.jpg',
-	// 		'/images/gallery/lighting-3.jpg',
-	// 	],
-	// },
 ];
 
 const ProductsPage = () => {
 	const [selectedProduct, setSelectedProduct] = useState(null);
 	const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-	// const openGallery = (product) => {
-	// 	setSelectedProduct(product);
-	// 	setCurrentImageIndex(0);
-	// };
 
 	const closeGallery = () => {
 		setSelectedProduct(null);
@@ -84,7 +69,7 @@ const ProductsPage = () => {
 	};
 
 	return (
-		<div className=' p-8'>
+		<div className='p-8'>
 			<div className='max-w-6xl mx-auto'>
 				<h1 className='text-4xl font-bold mb-8 text-center'>Our Products</h1>
 
@@ -92,40 +77,36 @@ const ProductsPage = () => {
 					<p className='text-lg text-gray-700 text-center'>
 						Lauria and Hill offers a wide range of products for custom wire
 						harness assemblies, high power cables, coaxial cables and circuit
-						boards to meet all of your specifications. No
-						requirement is too big or too small.
+						boards to meet all of your specifications. No requirement is too big
+						or too small.
 					</p>
 				</div>
 
-				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-					{products.map((product, index) => (
-						<div
-							key={index}
-							className='bg-white rounded-lg shadow-md overflow-hidden'>
+				<div className='flex justify-center'>
+					<div className='flex flex-wrap justify-center gap-8 max-w-6xl'>
+						{products.map((product, index) => (
 							<div
-								className='h-48 relative cursor-pointer'
-								// onClick={() => openGallery(product)}
-							>
-								<Image
-									src={product.image}
-									alt={product.name}
-									layout='fill'
-									objectFit='cover'
-								/>
+								key={index}
+								className='flex-shrink-0 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] max-w-sm'>
+								<div className='bg-white rounded-lg shadow-md overflow-hidden h-full'>
+									<div className='h-48 relative cursor-pointer'>
+										<Image
+											src={product.image}
+											alt={product.name}
+											layout='fill'
+											objectFit='cover'
+										/>
+									</div>
+									<div className='p-4'>
+										<h3 className='text-xl font-semibold text-amber-700'>
+											{product.name}
+										</h3>
+										<p className='text-gray-600 mt-2'>{product.description}</p>
+									</div>
+								</div>
 							</div>
-							<div className='p-4'>
-								<h3 className='text-xl font-semibold text-amber-700'>
-									{product.name}
-								</h3>
-								<p className='text-gray-600 mt-2'>{product.description}</p>
-								{/* <button
-									onClick={() => openGallery(product)}
-									className='mt-4 text-amber-600 hover:text-amber-800 transition duration-300'>
-									View Gallery
-								</button> */}
-							</div>
-						</div>
-					))}
+						))}
+					</div>
 				</div>
 
 				<div className='mt-12 text-center'>
