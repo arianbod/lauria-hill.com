@@ -128,18 +128,18 @@ const HomePage = () => {
 			</section>
 
 			{/* Why Choose Us Section */}
-			<section className='py-16 px-4 sm:px-6 lg:px-8 border-t-2 mx-4'>
-				<div className='max-w-7xl mx-auto'>
+			<section className='py-16 px-4 sm:px-6 lg:px-8 border-t-2 mx-4 flex flex-col items-center'>
+				<div className='mx-auto'>
 					<h2 className='text-3xl font-bold mb-8 text-center'>
 						{homepage.whyChooseUs.title}
 					</h2>
-					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-start w-full max-w-6xl'>
 						{homepage.whyChooseUs.items.map((item, index) => (
 							<div
 								key={index}
 								className='flex items-start'>
 								<CheckCircle className='flex-shrink-0 h-6 w-6 mt-1' />
-								<p className='ml-3 text-lg '>{item}</p>
+								<p className='ml-3 text-lg'>{item}</p>
 							</div>
 						))}
 					</div>
@@ -178,17 +178,17 @@ const HomePage = () => {
 				</div>
 			</section>
 			{/* Benefits Section */}
-			<section className='py-16 px-4 sm:px-6 lg:px-8 border-b-2 mx-4'>
-				<div className='max-w-7xl mx-auto'>
+			<section className='py-16 px-4 sm:px-6 lg:px-8 border-b-2 mx-4 flex flex-col items-center'>
+				<div className='mx-auto'>
 					<h2 className='text-3xl font-bold mb-8 text-center'>
 						{homepage.benefits.title}
 					</h2>
-					<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+					<div className='grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-start w-full max-w-4xl'>
 						{homepage.benefits.items.map((benefit, index) => (
 							<div
 								key={index}
 								className='flex items-start'>
-								<CheckCircle className='flex-shrink-0 h-6 w-6  mt-1' />
+								<CheckCircle className='flex-shrink-0 h-6 w-6 mt-1' />
 								<p className='ml-3 text-lg'>{benefit}</p>
 							</div>
 						))}

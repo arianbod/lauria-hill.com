@@ -91,8 +91,8 @@ const ProductsPage = () => {
 				<div className='bg-white rounded-lg shadow-md p-6 mb-12'>
 					<p className='text-lg text-gray-700 text-center'>
 						Lauria and Hill offers a wide range of products for custom wire
-						harness assemblies, high power cables, coaxial cables, circuit
-						boards and lighting to meet all of your specifications. No
+						harness assemblies, high power cables, coaxial cables and circuit
+						boards to meet all of your specifications. No
 						requirement is too big or too small.
 					</p>
 				</div>

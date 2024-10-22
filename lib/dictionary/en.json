@@ -66,6 +66,12 @@
 					"icon": "🏥",
 					"src": "/images/medical.png",
 					"description": "High-quality cables for medical equipment."
+				},
+				{
+					"name": "Transportation",
+					"icon": "🚇",
+					"src": "/images/subway.png",
+					"description": "High-quality cables for medical equipment."
 				}
 			]
 		},

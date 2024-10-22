@@ -17,9 +17,9 @@ const contactPersons = [
 		email: 'eciasca@lauria-hill.com',
 	},
 	{
-		name: 'Gerry Ciasca',
-		role: 'Production',
-		email: 'gciasca@lauria-hill.com',
+		name: 'Marco Ciasca',
+		role: 'Purchasing Manager',
+		email: 'mciasca@lauria-hill.com',
 	},
 ];
 

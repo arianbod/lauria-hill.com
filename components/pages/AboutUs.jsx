@@ -14,12 +14,13 @@ const industries = [
 
 const certifications = [
 	{ name: 'CSA Group', logo: '/images/certificates/csa-group-logo.png' },
+	{ name: 'certech', logo: '/images/certificates/iso9001.png' },
+	{ name: 'UL', logo: '/images/certificates/ul-logo.png' },
+	{ name: 'certech', logo: '/images/certificates/certech.png' },
 	{
 		name: 'TÜV Rheinland',
 		logo: '/images/certificates/tuv-rheinland-logo.png',
 	},
-	{ name: 'UL', logo: '/images/certificates/ul-logo.png' },
-	{ name: 'certech', logo: '/images/certificates/certech.png' },
 ];
 
 const AboutUsPage = () => {
