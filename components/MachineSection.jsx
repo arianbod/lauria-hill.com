@@ -4,18 +4,18 @@ import { ArrowRight } from 'lucide-react';
 
 const MachineShowcase = () => {
 	const machines = [
-		{
-			name: 'Advanced Crimping Station',
-			type: 'Wire Processing',
-			image: '/images/devices/delta540.webp',
-			description:
-				'State-of-the-art benchtop crimping station equipped with comprehensive connector processing capabilities for precise assembly work.',
-			features: [
-				'Wide connector compatibility',
-				'Precision force monitoring',
-				'Advanced safety features',
-			],
-		},
+		// {
+		// 	name: 'Advanced Crimping Station',
+		// 	type: 'Wire Processing',
+		// 	image: '/images/devices/delta540.webp',
+		// 	description:
+		// 		'State-of-the-art benchtop crimping station equipped with comprehensive connector processing capabilities for precise assembly work.',
+		// 	features: [
+		// 		'Wide connector compatibility',
+		// 		'Precision force monitoring',
+		// 		'Advanced safety features',
+		// 	],
+		// },
 		{
 			name: 'Precision Processing Platform',
 			type: 'Multi-Processing',
