@@ -161,6 +161,7 @@ const HomePage = () => {
 									<Image
 										src={industry.src}
 										width={400}
+										quality={50}
 										height={400}
 										objectFit='cover'
 										alt={industry.name}

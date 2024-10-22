@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import MachineShowcase from '../MachineSection';
 
 const industries = [
 	{ name: 'Transportation', image: '/images/services/transportation.jpeg' },
@@ -103,7 +104,7 @@ const AboutUsPage = () => {
 					</p>
 				</div>
 			</section>
-
+			<MachineShowcase />
 			{/* Certifications */}
 			<section className='py-16 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-3xl mx-auto'>
