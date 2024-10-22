@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import MachineShowcase from '../MachineSection';
+import CertificationsSection from '../CertificationsSection';
 
 const industries = [
 	{ name: 'Transportation', image: '/images/services/transportation.jpeg' },
@@ -13,16 +14,16 @@ const industries = [
 	{ name: 'Communications', image: '/images/services/communications.jpeg' },
 ];
 
-const certifications = [
-	{ name: 'CSA Group', logo: '/images/certificates/csa-group-logo.png' },
-	{ name: 'certech', logo: '/images/certificates/iso9001.png' },
-	{ name: 'UL', logo: '/images/certificates/ul-logo.png' },
-	{ name: 'certech', logo: '/images/certificates/certech.png' },
-	{
-		name: 'TÜV Rheinland',
-		logo: '/images/certificates/tuv-rheinland-logo.png',
-	},
-];
+// const certifications = [
+// 	{ name: 'CSA Group', logo: '/images/certificates/csa-group-logo.png' },
+// 	{ name: 'certech', logo: '/images/certificates/iso9001.png' },
+// 	{ name: 'UL', logo: '/images/certificates/ul-logo.png' },
+// 	{ name: 'certech', logo: '/images/certificates/certech.png' },
+// 	{
+// 		name: 'TÜV Rheinland',
+// 		logo: '/images/certificates/tuv-rheinland-logo.png',
+// 	},
+// ];
 
 const AboutUsPage = () => {
 	const currentYear = new Date().getFullYear();
@@ -106,27 +107,7 @@ const AboutUsPage = () => {
 			</section>
 			<MachineShowcase />
 			{/* Certifications */}
-			<section className='py-16 px-4 sm:px-6 lg:px-8'>
-				<div className='max-w-3xl mx-auto'>
-					<h2 className='text-3xl font-bold  mb-8 text-center'>
-						Our Certifications
-					</h2>
-					<div className='flex justify-center items-center space-x-8 bg-white rounded-full py-2'>
-						{certifications.map((cert, index) => (
-							<Image
-								key={index}
-								src={cert.logo}
-								alt={cert.name}
-								// layout='fill'
-								objectFit='contain'
-								className=' h-fit  max-h-24 w-fit'
-								width={100}
-								height={100}
-							/>
-						))}
-					</div>
-				</div>
-			</section>
+			<CertificationsSection />
 
 			{/* Contact Information */}
 		</div>
