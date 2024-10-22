@@ -161,10 +161,10 @@ const HomePage = () => {
 									<Image
 										src={industry.src}
 										width={400}
-										quality={50}
 										height={400}
-										objectFit='cover'
 										alt={industry.name}
+										quality={50}
+										style={{ objectFit: 'cover' }}
 										className='rounded-b-full rounded-t-2xl w-full -translate-y-10 hover:translate-y-0 transition-all duration-500 hover:scale-105'
 									/>
 									{/* {industry.icon} */}
