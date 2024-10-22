@@ -12,6 +12,7 @@ const industries = [
 		image: '/images/services/commercial-equipment.jpeg',
 	},
 	{ name: 'Communications', image: '/images/services/communications.jpeg' },
+	{ name: 'Marine', image: '/images/services/boat.jpeg' },
 ];
 
 const AboutUsPage = () => {
