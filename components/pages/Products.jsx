@@ -44,6 +44,17 @@ const products = [
 			'/images/gallery/circuit-3.jpg',
 		],
 	},
+	{
+		name: 'Communication Assemblies',
+		image: '/images/gallery/assemblies.jpg',
+		description:
+			'Advanced connectivity solutions for telecommunications and data transmission systems.',
+		gallery: [
+			'/images/gallery/circuit-1.jpg',
+			'/images/gallery/circuit-2.jpg',
+			'/images/gallery/circuit-3.jpg',
+		],
+	},
 ];
 
 const ProductsPage = () => {

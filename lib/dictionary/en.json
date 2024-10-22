@@ -2,21 +2,21 @@
 	"menuitems": [
 		{ "title": "Home", "url": "/", "icon": "" },
 		{ "title": "products", "url": "/products", "icon": "" },
-		{ "title": "capabilities", "url": "/capabilities", "icon": "" },
+		{ "title": "specialized services", "url": "/specialized-services", "icon": "" },
 		{ "title": "about us", "url": "/about-us", "icon": "" },
 		{ "title": "contact us", "url": "/contact-us", "icon": "" }
 	],
 	"homepage": {
 		"hero": {
 			"title": "Expert Cable Solutions",
-			"subtitle": "Transform Your Connectivity with Field Components",
+			"subtitle": "Transform Your Connectivity with Lauria and Hill",
 			"description": "Experience innovative cable and wire harness solutions, crafted with precision and expertise. Our strategic engineering approach ensures seamless integration, reliability and efficiency.",
 			"cta": "Get Started",
 			"yearsExperience": "YEARS"
 		},
 		"experience": {
 			"title": "50+ Years of Excellence",
-			"subtitle": "Field Components: Your Partner in Innovation",
+			"subtitle": "Lauria and Hill: Your Partner in Innovation",
 			"description": "Leverage our 50+ years of combined expertise in custom cable and wire harness manufacturing for seamless project execution.",
 			"supportItems": [
 				"Expert engineering guidance for new design development",
@@ -25,13 +25,14 @@
 			]
 		},
 		"whyChooseUs": {
-			"title": "Why Choose Field Components?",
+			"title": "Why Choose Lauria and Hill?",
 			"items": [
 				"Unparalleled industry experience",
 				"Precision craftsmanship",
 				"Reliable, high-performance cables",
 				"Personalized customer support",
-				"Rapid prototyping and production"
+				"Rapid prototyping and production",
+				"Comprehensive quality assurance"
 			]
 		},
 		"industries": {
@@ -86,7 +87,7 @@
 			]
 		},
 		"partnership": {
-			"title": "Partner with Field Components for:",
+			"title": "Partner with Lauria and Hill for:",
 			"items": [
 				"Strategic product design",
 				"Technical support",

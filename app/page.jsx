@@ -59,19 +59,19 @@ const HomePage = () => {
 						<div className='relative inline-flex items-center justify-center overflow-hidden rounded-3xl '>
 							{/* <span className='text-4xl font-bold text-gray-100'>50+</span> */}
 							<Image
-								src='/images/logo4.png'
+								src='/images/logo5.png'
 								width={400}
 								height={400}
 								alt='50+'
-								className='w-80 h-80 bg-slate-600 rounded-full drop-shadow-xl'
+								className='w-80 h-80 drop-shadow-xl'
 							/>
 							{/* <span className='absolute bottom-4 text-sm font-medium text-gray-300'>
 								{homepage.hero.yearsExperience}
 							</span> */}
 						</div>
 					</div>
-					<h1 className='text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 '>
-						Welcome to Lauria and Hill!
+					<h1 className='text-3xl sm:text-4xl md:text-5xl font-bold text-amber-500 mb-2 drop-shadow-lg'>
+						Lauria and Hill Technologies!
 					</h1>
 					<h2 className='text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 h-8'>
 						<TypewriterEffect

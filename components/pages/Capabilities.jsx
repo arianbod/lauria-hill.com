@@ -21,7 +21,7 @@ const CapabilitiesPage = () => {
 			{/* Hero Section */}
 			<section className='px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-4xl mx-auto text-center'>
-					<h1 className='text-4xl font-bold mb-4'>Our Capabilities</h1>
+					<h1 className='text-4xl font-bold mb-4'>Specialized Services</h1>
 					<p className='text-xl'>
 						Innovative solutions for all your wire and cable harness needs
 					</p>
