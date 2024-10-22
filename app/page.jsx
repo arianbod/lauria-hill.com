@@ -158,7 +158,7 @@ const HomePage = () => {
 								key={index}
 								className='bg-white pb-6 rounded-xl overflow-hidden shadow-md flex flex-col items-center text-center'>
 								<div className='text-4xl mb-4'>
-									<Image
+									<img
 										unoptimized
 										src={industry.src}
 										width={400}
