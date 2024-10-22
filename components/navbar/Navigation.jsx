@@ -70,7 +70,7 @@ const Navigation = () => {
 							<Link
 								key={item.title}
 								href={item.url}
-								className={`flex items-center space-x-2 hover:text-gray-400 transition-all hover:translate-y-1 duration-200 capitalize font-semibold ${
+								className={`flex select-none items-center space-x-2 hover:text-gray-400 transition-all hover:translate-y-1 duration-200 capitalize font-semibold ${
 									item.url === '/contact-us' &&
 									'bg-amber-500 hover:text-amber-200 px-4 py-2 rounded-full drop-shadow-xl text-slate-800 xl:absolute right-5 top-5 animate-pulse'
 								}`}>

@@ -7,14 +7,14 @@ import Link from 'next/link';
 
 const contactPersons = [
 	{
-		name: 'Mario Scola',
-		role: 'Sales/Engineering',
-		email: 'mjscola@lauria-hill.com',
-	},
-	{
 		name: 'Emilio Ciasca',
 		role: 'Sales/Engineering',
 		email: 'eciasca@lauria-hill.com',
+	},
+	{
+		name: 'Mario Scola',
+		role: 'Sales/Engineering',
+		email: 'mjscola@lauria-hill.com',
 	},
 	{
 		name: 'Marco Ciasca',
@@ -100,7 +100,7 @@ const ContactUs = () => {
 							width={800}
 							height={400}
 							src='/images/env.png'
-							className='rounded-xl mx-auto my-4 drop-shadow-lg max-h-64 w-full'
+							className='rounded-xl mx-auto my-4 drop-shadow-lg max-h-64 h-fit object-cover w-full'
 							alt='environment'
 						/>
 					</div>

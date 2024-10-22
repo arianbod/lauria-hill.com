@@ -13,6 +13,10 @@ const capabilities = [
 	},
 	{ name: 'Soldering', image: '/images/services/soldering.webp' },
 	{ name: 'Wire Stripping/Twisting', image: '/images/services/wire-2.webp' },
+	{
+		name: 'construction equipment',
+		image: '/images/services/construction.jpeg',
+	},
 ];
 
 const CapabilitiesPage = () => {
@@ -33,12 +37,11 @@ const CapabilitiesPage = () => {
 				<div className='max-w-7xl mx-auto'>
 					<div className='bg-white rounded-lg shadow-lg p-8 mb-12'>
 						<p className='text-lg text-gray-700 mb-6'>
-							Engineering support, Panel builds, Automated Wire
-							Cutting/Stripping/Terminating, Soldering and Wire
-							Stripping/Twisting are only some of the services we have to offer.
-							Today our manufacturing is produced in a 20,000 square foot
-							building that can facilitate all your needs including a stocking
-							program.
+							Engineering support, panel builds, automated wire cutting,
+							stripping, terminating, soldering, and wire twisting/stripping are
+							just some of the services we offer. Our manufacturing facility
+							spans 20,000 square feet, allowing us to meet all your needs,
+							including stocking programs.
 						</p>
 						<div className='bg-silver-100 border-l-4 border-slate-500 p-4'>
 							<p className='text-slate-700 font-semibold text-center'>
@@ -49,7 +52,7 @@ const CapabilitiesPage = () => {
 								width={800}
 								height={400}
 								src='/images/env.png'
-								className='rounded-xl mx-auto my-4 drop-shadow-lg w-fit'
+								className='rounded-xl mx-auto my-4 drop-shadow-lg w-fit object-cover'
 								alt='environment'
 							/>
 						</div>
@@ -74,7 +77,7 @@ const CapabilitiesPage = () => {
 											/>
 										</div>
 										<div className='p-4'>
-											<h3 className='text-xl font-semibold text-slate-700 text-center'>
+											<h3 className='text-xl font-semibold text-slate-700 text-center capitalize'>
 												{capability.name}
 											</h3>
 										</div>

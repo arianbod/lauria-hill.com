@@ -57,10 +57,10 @@
 					"description": "Robust cables for heavy-duty equipment."
 				},
 				{
-					"name": "Industrial Automation",
-					"icon": "🏭",
+					"name": "Commercial Equipment",
+					"icon": "🏢",
 					"src": "/images/automation.png",
-					"description": "Efficient solutions for automated systems."
+					"description": "Reliable cable solutions for commercial and business equipment."
 				},
 				{
 					"name": "Medical Devices",
