@@ -50,7 +50,7 @@ const Navigation = () => {
 				<div className='flex items-center'>
 					<div className='w-80 h-full flex gap-4 items-center justify-center border-r border-button-700 pr-4'>
 						<Image
-							src='/images/logo5.png'
+							src='/images/logo6.png'
 							width={200}
 							height={200}
 							alt='logo'
@@ -107,7 +107,7 @@ const Navigation = () => {
 									<div className='relative mr-2'>
 										<div className='flex flex-col items-center justify-center w-16 h-12 rounded-full select-none'>
 											<Image
-												src='/images/logo5.png'
+												src='/images/logo6.png'
 												width={200}
 												height={200}
 												alt='logo'

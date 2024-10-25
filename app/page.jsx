@@ -59,7 +59,7 @@ const HomePage = () => {
 						<div className='relative inline-flex items-center justify-center overflow-hidden rounded-3xl '>
 							{/* <span className='text-4xl font-bold text-gray-100'>50+</span> */}
 							<Image
-								src='/images/logo5.png'
+								src='/images/logo6.png'
 								width={400}
 								height={400}
 								alt='50+'
