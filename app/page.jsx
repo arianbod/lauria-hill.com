@@ -50,7 +50,7 @@ const HomePage = () => {
 	return (
 		<>
 			{/* Hero Section */}
-			<section className='relative h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-700 to-gray-700'>
+			<section className='relative  flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-700 to-gray-700'>
 				<div className='absolute inset-0 '>
 					{/* Background image code remains the same */}
 				</div>
