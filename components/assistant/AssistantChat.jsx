@@ -1,18 +1,11 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import {
-	Send,
-	Image as ImageIcon,
-	Paperclip,
-	Smile,
-	ArrowBigUp,
-} from 'lucide-react';
+import { ArrowBigUp } from 'lucide-react';
 import { useAssistant } from '@/context/AssistantContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import TypingIndicator from './TypingIndicator';
 import ReactMarkdown from 'react-markdown';
-import Image from 'next/image';
 
 const ChatMessage = ({ message, isLast }) => {
 	const isUser = message.role === 'user';
@@ -32,7 +25,7 @@ const ChatMessage = ({ message, isLast }) => {
 				<div className='prose prose-sm max-w-none dark:prose-invert'>
 					<ReactMarkdown
 						components={{
-							code: ({ node, inline, className, children, ...props }) => {
+							code: ({ inline, children, ...props }) => {
 								if (inline) {
 									return (
 										<code
