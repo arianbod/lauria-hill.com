@@ -3,7 +3,9 @@ import localFont from 'next/font/local';
 import './globals.css';
 import Navigation from '@/components/navbar/Navigation';
 import Footer from '@/components/Footer';
-
+import AssistantWrapper from '@/components/assistant/AssistantWrapper';
+import Providers from './providers';
+import { Toaster } from 'react-hot-toast';
 const geistSans = localFont({
 	src: './fonts/GeistVF.woff',
 	variable: '--font-geist-sans',
@@ -31,7 +33,17 @@ export default function RootLayout({
 				className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}>
 				<Navigation />
 				<main className='min-h-screen bg-gradient-to-b from-slate-700 to-gray-700 text-white pt-24'>
-					{children}
+					<Providers>
+						<Toaster
+							position='top-center'
+							containerClassName={'ltr'}
+							toastOptions={{
+								className: 'ltr',
+							}}
+						/>
+						{children}
+						<AssistantWrapper />
+					</Providers>
 					<Footer />
 				</main>
 			</body>
