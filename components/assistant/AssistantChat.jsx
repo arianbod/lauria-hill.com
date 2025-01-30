@@ -2,97 +2,11 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import {
-	Send,
-	Image as ImageIcon,
-	Paperclip,
-	Smile,
-	ArrowBigUp,
-	MessageCircle,
-	Check,
-	CheckCheck,
-} from 'lucide-react';
+import { ArrowBigUp } from 'lucide-react';
 import { useAssistant } from '@/context/AssistantContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import TypingIndicator from './TypingIndicator';
-import ReactMarkdown from 'react-markdown';
-import Image from 'next/image';
-
-const ChatMessage = ({ message, isLast }) => {
-	const isUser = message.role === 'user';
-
-	return (
-		<motion.div
-			initial={{ opacity: 0, y: 10 }}
-			animate={{ opacity: 1, y: 0 }}
-			className={`flex ${isUser ? 'justify-end' : 'justify-start'} group mb-6`}>
-			<div
-				className={`relative max-w-[85%] p-4 rounded-2xl shadow-sm 
-                    ${
-											isUser
-												? 'bg-blue-500 text-white ml-4 rounded-br-sm'
-												: 'bg-gray-100 dark:bg-gray-800/90 text-gray-900 dark:text-gray-100 mr-4 rounded-bl-sm'
-										}`}>
-				{/* Message content with Markdown support */}
-				<div className='prose prose-sm max-w-none dark:prose-invert'>
-					<ReactMarkdown
-						components={{
-							code: ({ node, inline, className, children, ...props }) => {
-								if (inline) {
-									return (
-										<code
-											className='px-1.5 py-0.5 rounded bg-gray-200/20 dark:bg-gray-700/50 font-mono text-sm'
-											{...props}>
-											{children}
-										</code>
-									);
-								}
-								return (
-									<pre className='p-4 rounded-lg bg-gray-200/20 dark:bg-gray-700/50 overflow-x-auto'>
-										<code
-											className='font-mono text-sm'
-											{...props}>
-											{children}
-										</code>
-									</pre>
-								);
-							},
-						}}>
-						{message.content}
-					</ReactMarkdown>
-				</div>
-
-				{/* End of message indicator for assistant messages */}
-				{!isUser && (
-					<div className='mt-2 flex items-center justify-end text-xs text-gray-500 dark:text-gray-400'>
-						<MessageCircle className='w-3 h-3 mr-1' />
-						<span>End of response</span>
-					</div>
-				)}
-
-				{/* Timestamp and status */}
-				<div
-					className={`absolute ${isUser ? 'left-0' : 'right-0'} -bottom-6 
-                        text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap
-                        opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1`}>
-					{new Date(message.timestamp || Date.now()).toLocaleTimeString([], {
-						hour: '2-digit',
-						minute: '2-digit',
-					})}
-					{isUser && isLast && (
-						<span className='ml-1'>
-							{message.status === 'sent' ? (
-								<Check className='w-3 h-3' />
-							) : (
-								<CheckCheck className='w-3 h-3' />
-							)}
-						</span>
-					)}
-				</div>
-			</div>
-		</motion.div>
-	);
-};
+import ChatMessage from './ChatMessage';
 
 const AssistantChat = () => {
 	const { messages, sendMessage, isLoading } = useAssistant();
@@ -194,21 +108,21 @@ const AssistantChat = () => {
 								onCompositionEnd={() => setIsComposing(false)}
 								placeholder='Type your message...'
 								className='w-full bg-white dark:bg-gray-800 rounded-2xl px-4 py-3 pr-12
-                                    text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400
-                                    min-h-[48px] max-h-[150px] resize-none shadow-sm
-                                    border border-gray-200 dark:border-gray-700
-                                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
-                                    transition-all duration-200
-                                  overflow-hidden hover:overflow-auto
-                                    [&::-webkit-scrollbar]:w-1.5
-                                    [&::-webkit-scrollbar]:h-1.5
-                                    [&::-webkit-scrollbar-track]:bg-transparent
-                                    [&::-webkit-scrollbar-thumb]:bg-gray-300
-                                    [&::-webkit-scrollbar-thumb]:rounded-full
-                                    dark:[&::-webkit-scrollbar-thumb]:bg-gray-600
-                                    hover:[&::-webkit-scrollbar-thumb]:bg-gray-400
-                                    dark:hover:[&::-webkit-scrollbar-thumb]:bg-gray-500
-                                    [&::-webkit-scrollbar-thumb:vertical]:min-h-[40px]'
+                  text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400
+                  min-h-[48px] max-h-[150px] resize-none shadow-sm
+                  border border-gray-200 dark:border-gray-700
+                  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+                  transition-all duration-200
+                  overflow-hidden hover:overflow-auto
+                  [&::-webkit-scrollbar]:w-1.5
+                  [&::-webkit-scrollbar]:h-1.5
+                  [&::-webkit-scrollbar-track]:bg-transparent
+                  [&::-webkit-scrollbar-thumb]:bg-gray-300
+                  [&::-webkit-scrollbar-thumb]:rounded-full
+                  dark:[&::-webkit-scrollbar-thumb]:bg-gray-600
+                  hover:[&::-webkit-scrollbar-thumb]:bg-gray-400
+                  dark:hover:[&::-webkit-scrollbar-thumb]:bg-gray-500
+                  [&::-webkit-scrollbar-thumb:vertical]:min-h-[40px]'
 								disabled={isLoading}
 							/>
 						</div>
@@ -219,9 +133,9 @@ const AssistantChat = () => {
 							whileHover={{ scale: 1.05 }}
 							whileTap={{ scale: 0.95 }}
 							className='p-3 bg-blue-600 hover:bg-blue-700 rounded-xl disabled:opacity-50 
-                                disabled:bg-gray-300 dark:disabled:bg-gray-700
-                                disabled:cursor-not-allowed flex-shrink-0 transition-all duration-200
-                                shadow-sm hover:shadow-md'>
+                disabled:bg-gray-300 dark:disabled:bg-gray-700
+                disabled:cursor-not-allowed flex-shrink-0 transition-all duration-200
+                shadow-sm hover:shadow-md'>
 							<ArrowBigUp className='w-6 h-6 text-white' />
 						</motion.button>
 					</div>
