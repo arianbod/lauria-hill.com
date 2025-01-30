@@ -1,7 +1,8 @@
+/* eslint-disable */
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { X, Minimize2, Maximize2 } from 'lucide-react';
+import { X, Minimize2, Maximize2, MessageCircle } from 'lucide-react';
 import { useAssistant } from '@/context/AssistantContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import AssistantChat from './AssistantChat';

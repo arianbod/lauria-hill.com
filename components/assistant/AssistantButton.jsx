@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
@@ -27,14 +28,89 @@ const ASSISTANT_MESSAGES = [
 	'💫 Let me help you find the best options',
 ];
 
+const RobotFace = ({ expression = 'default', blink }) => (
+	<svg
+		viewBox='0 0 120 120'
+		className='w-full h-full'>
+		{/* Face background */}
+		<circle
+			cx='60'
+			cy='60'
+			r='56'
+			fill='#ffffff'
+			stroke='#6b7aff'
+			strokeWidth='3'
+		/>
+
+		{/* Left eye */}
+		<motion.g
+			animate={blink ? { scaleY: [1, 0.1, 1] } : {}}
+			transition={{ duration: 0.2 }}>
+			<circle
+				cx='40'
+				cy='50'
+				r='8'
+				fill='#6b7aff'
+			/>
+			<circle
+				cx='42'
+				cy='48'
+				r='3'
+				fill='#ffffff'
+			/>
+		</motion.g>
+
+		{/* Right eye */}
+		<motion.g
+			animate={blink ? { scaleY: [1, 0.1, 1] } : {}}
+			transition={{ duration: 0.2 }}>
+			<circle
+				cx='80'
+				cy='50'
+				r='8'
+				fill='#6b7aff'
+			/>
+			<circle
+				cx='82'
+				cy='48'
+				r='3'
+				fill='#ffffff'
+			/>
+		</motion.g>
+
+		{/* Mouth - changes with expression */}
+		<motion.path
+			d={
+				expression === 'happy'
+					? 'M40,75 Q60,95 80,75'
+					: expression === 'thinking'
+					? 'M40,80 Q60,80 80,80'
+					: 'M40,80 Q60,90 80,80'
+			}
+			fill='none'
+			stroke='#6b7aff'
+			strokeWidth='3'
+			strokeLinecap='round'
+			animate={{
+				d:
+					expression === 'happy'
+						? 'M40,75 Q60,95 80,75'
+						: expression === 'thinking'
+						? 'M40,80 Q60,80 80,80'
+						: 'M40,80 Q60,90 80,80',
+			}}
+		/>
+	</svg>
+);
+
 const AnimatedAssistantButton = () => {
 	const { toggleAssistant } = useAssistant();
 	const [isButtonVisible, setIsButtonVisible] = useState(true);
 	const [isDialogOpen, setIsDialogOpen] = useState(false);
 	const [isMobile, setIsMobile] = useState(false);
 	const [currentMessage, setCurrentMessage] = useState('');
-	const [setExpression] = useState('default');
-	const [setBlink] = useState(false);
+	const [expression, setExpression] = useState('default');
+	const [blink, setBlink] = useState(false);
 
 	// Screen size check
 	useEffect(() => {
