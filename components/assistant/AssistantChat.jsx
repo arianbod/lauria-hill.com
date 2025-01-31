@@ -51,9 +51,11 @@ const AssistantChat = () => {
 
 		try {
 			// Get user's email from wherever you store it in your app
-			const userEmail = 'majorrafiei@gmail.com'; // Replace with actual user email
+			const userEmail = 'eciasca@lauria-hill.com'; // Replace with actual user email
+			// const userEmail2 = 'majorrafiei@gmail.com'; // Replace with actual user email
 
 			const result = await sendConferenceNotification(userEmail, conferenceUrl);
+			// const result = await sendConferenceNotification(userEmail2, conferenceUrl);
 
 			if (result.success) {
 				// You might want to show a success message or handle it in your UI
