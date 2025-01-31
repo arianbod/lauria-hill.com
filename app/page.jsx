@@ -1,6 +1,5 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import en from '@/lib/dictionary/en.json';
@@ -50,24 +49,18 @@ const HomePage = () => {
 	return (
 		<>
 			{/* Hero Section */}
-			<section className='relative  flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-700 to-gray-700'>
+			<section className='relative flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-700 to-gray-700'>
 				<div className='absolute inset-0 '>
 					{/* Background image code remains the same */}
 				</div>
-				<div className='relative  text-center px-4 sm:px-6 lg:px-8 drop-shadow-lg'>
+				<div className='relative text-center px-4 sm:px-6 lg:px-8 drop-shadow-lg'>
 					<div className='mb-8 inline-block'>
-						<div className='relative inline-flex items-center justify-center overflow-hidden rounded-3xl '>
-							{/* <span className='text-4xl font-bold text-gray-100'>50+</span> */}
-							<Image
+						<div className='relative inline-flex items-center justify-center overflow-hidden rounded-3xl'>
+							<img
 								src='/images/logo6.png'
-								width={400}
-								height={400}
 								alt='50+'
 								className='w-80 h-80 drop-shadow-xl'
 							/>
-							{/* <span className='absolute bottom-4 text-sm font-medium text-gray-300'>
-								{homepage.hero.yearsExperience}
-							</span> */}
 						</div>
 					</div>
 					<h1 className='text-3xl sm:text-4xl md:text-5xl font-bold text-amber-500 mb-2 drop-shadow-lg'>
@@ -87,7 +80,7 @@ const HomePage = () => {
 					</p>
 					<Link
 						href='/contact-us'
-						className='inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md bg-button-normal hover:bg-button-hover text-button-text  transition duration-150 ease-in-out select-none'>
+						className='inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md bg-button-normal hover:bg-button-hover text-button-text transition duration-150 ease-in-out select-none'>
 						{homepage.hero.cta}
 						<ArrowRight className='ml-2 -mr-1 h-5 w-5' />
 					</Link>
@@ -98,12 +91,10 @@ const HomePage = () => {
 			<section className='py-16 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-7xl mx-auto'>
 					<div className='text-center mb-12'>
-						<Image
-							width={200}
-							height={200}
+						<img
 							src='/images/50+.png'
 							alt='50+'
-							className='mx-auto drop-shadow-2xl rounded-full mb-4'
+							className='mx-auto drop-shadow-2xl rounded-full mb-4 w-[200px] h-[200px]'
 						/>
 						<h2 className='text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 h-8'>
 							<TypewriterEffect
@@ -147,7 +138,7 @@ const HomePage = () => {
 			</section>
 
 			{/* Industries Section */}
-			<section className='py-24 px-4 sm:px-6 lg:px-8 '>
+			<section className='py-24 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-7xl mx-auto'>
 					<h2 className='text-4xl font-bold mb-12 text-center animate-fade-in-down'>
 						{homepage.industries.title}
@@ -158,16 +149,12 @@ const HomePage = () => {
 								key={index}
 								className='bg-white pb-6 rounded-xl overflow-hidden shadow-md flex flex-col items-center text-center'>
 								<div className='text-4xl mb-4'>
-									<Image
+									<img
 										src={industry.src}
-										width={400}
-										height={400}
 										alt={industry.name}
-										quality={50}
-										style={{ objectFit: 'cover' }}
 										className='rounded-b-full rounded-t-2xl w-full -translate-y-10 hover:translate-y-0 transition-all duration-500 hover:scale-105'
+										style={{ objectFit: 'cover' }}
 									/>
-									{/* {industry.icon} */}
 								</div>
 								<h3 className='text-xl font-semibold text-blue-800 mb-2'>
 									{industry.name}
@@ -178,6 +165,7 @@ const HomePage = () => {
 					</div>
 				</div>
 			</section>
+
 			{/* Benefits Section */}
 			<section className='py-16 px-4 sm:px-6 lg:px-8 border-b-2 mx-4 flex flex-col items-center'>
 				<div className='mx-auto'>

@@ -1,8 +1,7 @@
-// pages/about.js or app/about/page.js
 import React from 'react';
 import Image from 'next/image';
-import MachineShowcase from '../components/MachineSection';
-import CertificationsSection from '../components/CertificationsSection';
+import MachineShowcase from '../MachineSection';
+import CertificationsSection from '../CertificationsSection';
 
 const industries = [
 	{ name: 'Transportation', image: '/images/services/transportation.jpeg' },
@@ -25,18 +24,13 @@ const AboutUsPage = () => {
 			{/* Hero Section */}
 			<section className='py-20 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-4xl mx-auto text-center flex flex-col gap-2'>
-					<div className='relative w-[200px] h-[200px] mx-auto'>
-						<Image
-							src='/images/50+.png'
-							alt='50+'
-							className='drop-shadow-2xl rounded-full object-cover'
-							priority
-							style={{
-								width: '100%',
-								height: '100%',
-							}}
-						/>
-					</div>
+					<Image
+						width={200}
+						height={200}
+						src='/images/50+.png'
+						alt='50+'
+						className='mx-auto drop-shadow-2xl rounded-full'
+					/>
 					<h1 className='text-4xl font-bold mb-4 border-t-2 border-t-amber-500 pt-4 mt-4 w-fit text-center mx-auto px-4 rounded-full'>
 						About Lauria and Hill Technologies
 					</h1>
@@ -82,16 +76,15 @@ const AboutUsPage = () => {
 									key={index}
 									className='flex-shrink-0 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] max-w-sm'>
 									<div className='bg-silver-50 rounded-lg overflow-hidden shadow-md h-full'>
-										<div className='relative h-48 w-full'>
-											<Image
+										<div className='h-48 relative overflow-hidden'>
+											<img
 												src={industry.image}
 												alt={industry.name}
-												className='object-cover'
-												style={{
-													width: '100%',
-													height: '100%',
-												}}
-												quality={90}
+												layout='fill'
+												objectFit='cover'
+												className='w-full h-full'
+												// width='300'
+												// height='300'
 											/>
 										</div>
 										<div className='p-4'>
