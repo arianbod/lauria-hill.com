@@ -4,7 +4,6 @@ import { createContext, useContext, useState, useCallback } from 'react';
 import { nanoid } from 'nanoid';
 import { AIPersonas } from '@/lib/Personas';
 import toast from 'react-hot-toast';
-// import { serverLogger } from '@/server/logger';
 
 const WEBSITE_USER = process.env.WEBSITE_USER || 'babagpt.ai';
 const API_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
@@ -210,16 +209,17 @@ export const AssistantProvider = ({ children }) => {
         [assistantChatId, isSending, createNewChat, supportModel]
     );
 
-    const sendConferenceNotification = useCallback(async (email, conferenceUrl) => {
+    const sendConferenceNotification = useCallback(async (email, conferenceUrl, chatMessages) => {
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/conference-notification`, {
+            const response = await fetch(`${API_URL}/api/conference-notification`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
                     email,
-                    conferenceUrl
+                    conferenceUrl,
+                    messages: chatMessages
                 })
             });
 
@@ -239,6 +239,7 @@ export const AssistantProvider = ({ children }) => {
 
         } catch (error) {
             console.error('Error sending conference notification:', error);
+            toast.error('Failed to send notification');
             return {
                 success: false,
                 error: error.message || 'Failed to send conference notification',

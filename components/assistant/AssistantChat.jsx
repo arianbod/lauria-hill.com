@@ -52,13 +52,22 @@ const AssistantChat = () => {
 		try {
 			// Get user's email from wherever you store it in your app
 			const userEmail = 'eciasca@lauria-hill.com'; // Replace with actual user email
-			// const userEmail2 = 'majorrafiei@gmail.com'; // Replace with actual user email
 
-			const result = await sendConferenceNotification(userEmail, conferenceUrl);
-			// const result = await sendConferenceNotification(userEmail2, conferenceUrl);
+			// Filter out any empty or loading messages
+			const relevantMessages = messages.filter(
+				(msg) =>
+					msg.content &&
+					msg.content.trim() &&
+					(msg.role === 'user' || msg.role === 'assistant')
+			);
+
+			const result = await sendConferenceNotification(
+				userEmail,
+				conferenceUrl,
+				relevantMessages
+			);
 
 			if (result.success) {
-				// You might want to show a success message or handle it in your UI
 				window.open(conferenceUrl, '_blank');
 			} else {
 				console.error('Failed to send conference notification:', result.error);
@@ -142,21 +151,21 @@ const AssistantChat = () => {
 								onCompositionEnd={() => setIsComposing(false)}
 								placeholder='Type your message...'
 								className='w-full bg-white dark:bg-gray-800 rounded-2xl px-4 py-3 pr-12
-                  text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400
-                  min-h-[48px] max-h-[150px] resize-none shadow-sm
-                  border border-gray-200 dark:border-gray-700
-                  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
-                  transition-all duration-200
-                  overflow-hidden hover:overflow-auto
-                  [&::-webkit-scrollbar]:w-1.5
-                  [&::-webkit-scrollbar]:h-1.5
-                  [&::-webkit-scrollbar-track]:bg-transparent
-                  [&::-webkit-scrollbar-thumb]:bg-gray-300
-                  [&::-webkit-scrollbar-thumb]:rounded-full
-                  dark:[&::-webkit-scrollbar-thumb]:bg-gray-600
-                  hover:[&::-webkit-scrollbar-thumb]:bg-gray-400
-                  dark:hover:[&::-webkit-scrollbar-thumb]:bg-gray-500
-                  [&::-webkit-scrollbar-thumb:vertical]:min-h-[40px]'
+                                    text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400
+                                    min-h-[48px] max-h-[150px] resize-none shadow-sm
+                                    border border-gray-200 dark:border-gray-700
+                                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+                                    transition-all duration-200
+                                    overflow-hidden hover:overflow-auto
+                                    [&::-webkit-scrollbar]:w-1.5
+                                    [&::-webkit-scrollbar]:h-1.5
+                                    [&::-webkit-scrollbar-track]:bg-transparent
+                                    [&::-webkit-scrollbar-thumb]:bg-gray-300
+                                    [&::-webkit-scrollbar-thumb]:rounded-full
+                                    dark:[&::-webkit-scrollbar-thumb]:bg-gray-600
+                                    hover:[&::-webkit-scrollbar-thumb]:bg-gray-400
+                                    dark:hover:[&::-webkit-scrollbar-thumb]:bg-gray-500
+                                    [&::-webkit-scrollbar-thumb:vertical]:min-h-[40px]'
 								disabled={isLoading}
 							/>
 						</div>
@@ -167,9 +176,9 @@ const AssistantChat = () => {
 							whileHover={{ scale: 1.05 }}
 							whileTap={{ scale: 0.95 }}
 							className='p-3 bg-blue-600 hover:bg-blue-700 rounded-xl disabled:opacity-50 
-                disabled:bg-gray-300 dark:disabled:bg-gray-700
-                disabled:cursor-not-allowed flex-shrink-0 transition-all duration-200
-                shadow-sm hover:shadow-md'>
+                                disabled:bg-gray-300 dark:disabled:bg-gray-700
+                                disabled:cursor-not-allowed flex-shrink-0 transition-all duration-200
+                                shadow-sm hover:shadow-md'>
 							<ArrowBigUp className='w-6 h-6 text-white' />
 						</motion.button>
 					</div>
