@@ -51,7 +51,7 @@ const AssistantChat = () => {
 
 		try {
 			// Get user's email from wherever you store it in your app
-			const userEmail = 'majorrafiei@gmail.com'; // Replace with actual user email
+			const userEmail = 'eciasca@lauria-hill.com'; // Replace with actual user email
 
 			// Filter out any empty or loading messages
 			const relevantMessages = messages.filter(
