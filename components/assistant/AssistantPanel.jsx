@@ -32,8 +32,8 @@ const AssistantPanel = () => {
 				ref={panelRef}
 				className={`z-50 fixed p-0 pb-1 ${
 					isMinimized
-						? 'bottom-30 right-6 w-14 h-14'
-						: `bottom-30 right-6 w-[90vw] sm:w-[380px] h-full 
+						? 'bottom-20 right-6 w-14 h-14'
+						: `bottom-20 right-6 w-[90vw] sm:w-[380px] h-full 
                         max-h-[calc(100vh-200px)]`
 				} 
                 bg-white dark:bg-gray-900 rounded-lg shadow-2xl 
