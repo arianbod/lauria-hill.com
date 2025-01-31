@@ -28,141 +28,75 @@ const ASSISTANT_MESSAGES = [
 	'💫 Let me help you find the best options',
 ];
 
-const RobotFace = ({ expression = 'default', blink }) => (
-	<svg
-		viewBox='0 0 120 120'
-		className='w-full h-full'>
-		{/* Face background */}
-		<circle
-			cx='60'
-			cy='60'
-			r='56'
-			fill='#ffffff'
-			stroke='#6b7aff'
-			strokeWidth='3'
-		/>
-
-		{/* Left eye */}
-		<motion.g
-			animate={blink ? { scaleY: [1, 0.1, 1] } : {}}
-			transition={{ duration: 0.2 }}>
-			<circle
-				cx='40'
-				cy='50'
-				r='8'
-				fill='#6b7aff'
-			/>
-			<circle
-				cx='42'
-				cy='48'
-				r='3'
-				fill='#ffffff'
-			/>
-		</motion.g>
-
-		{/* Right eye */}
-		<motion.g
-			animate={blink ? { scaleY: [1, 0.1, 1] } : {}}
-			transition={{ duration: 0.2 }}>
-			<circle
-				cx='80'
-				cy='50'
-				r='8'
-				fill='#6b7aff'
-			/>
-			<circle
-				cx='82'
-				cy='48'
-				r='3'
-				fill='#ffffff'
-			/>
-		</motion.g>
-
-		{/* Mouth - changes with expression */}
-		<motion.path
-			d={
-				expression === 'happy'
-					? 'M40,75 Q60,95 80,75'
-					: expression === 'thinking'
-					? 'M40,80 Q60,80 80,80'
-					: 'M40,80 Q60,90 80,80'
-			}
-			fill='none'
-			stroke='#6b7aff'
-			strokeWidth='3'
-			strokeLinecap='round'
-			animate={{
-				d:
-					expression === 'happy'
-						? 'M40,75 Q60,95 80,75'
-						: expression === 'thinking'
-						? 'M40,80 Q60,80 80,80'
-						: 'M40,80 Q60,90 80,80',
-			}}
-		/>
-	</svg>
-);
-
 const AnimatedAssistantButton = () => {
 	const { toggleAssistant } = useAssistant();
 	const [isButtonVisible, setIsButtonVisible] = useState(true);
 	const [isDialogOpen, setIsDialogOpen] = useState(false);
 	const [isMobile, setIsMobile] = useState(false);
 	const [currentMessage, setCurrentMessage] = useState('');
-	const [expression, setExpression] = useState('default');
-	const [blink, setBlink] = useState(false);
+	const [position, setPosition] = useState({
+		x: 0,
+		y: isMobile ? -100 : 0, // Move up by 100px on mobile
+	});
+	const [isTooltipVisible, setIsTooltipVisible] = useState(false);
 
-	// Screen size check
+	// Screen size check and position adjustment
 	useEffect(() => {
-		const checkScreenSize = () => setIsMobile(window.innerWidth < 640);
+		const checkScreenSize = () => {
+			const isMobileView = window.innerWidth < 640;
+			setIsMobile(isMobileView);
+			// Update position when screen size changes
+			setPosition((prev) => ({
+				x: prev.x,
+				y: isMobileView ? -100 : prev.y,
+			}));
+		};
 		checkScreenSize();
 		window.addEventListener('resize', checkScreenSize);
 		return () => window.removeEventListener('resize', checkScreenSize);
 	}, []);
 
-	// Blink animation
+	// Message rotation (only for desktop)
 	useEffect(() => {
-		const blinkInterval = setInterval(() => {
-			setBlink(true);
-			setTimeout(() => setBlink(false), 200);
-		}, Math.random() * 3000 + 2000);
+		if (isMobile) return;
 
-		return () => clearInterval(blinkInterval);
-	}, []);
-
-	// Message rotation
-	useEffect(() => {
 		let messageTimeout;
-
 		const rotateMessage = () => {
 			const newMessage =
 				ASSISTANT_MESSAGES[
 					Math.floor(Math.random() * ASSISTANT_MESSAGES.length)
 				];
-			setExpression('thinking');
-
 			setTimeout(() => {
 				setCurrentMessage(newMessage);
-				setExpression('happy');
-
-				setTimeout(() => {
-					setExpression('default');
-				}, 1000);
 			}, 500);
-
 			messageTimeout = setTimeout(rotateMessage, 8000);
 		};
 
 		rotateMessage();
 		return () => clearTimeout(messageTimeout);
-	}, []);
+	}, [isMobile]);
 
 	if (!isButtonVisible) return null;
 
 	return (
 		<>
-			<div className='fixed bottom-6 right-6 z-50  text-slate-800 font-bold'>
+			<motion.div
+				className='fixed bottom-6 right-6 z-50 text-slate-800 font-bold'
+				drag
+				dragMomentum={false}
+				dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+				dragElastic={0.1}
+				whileDrag={{ scale: 1.05 }}
+				animate={position}
+				onDragEnd={(event, info) => {
+					const newPosition = {
+						x: position.x + info.offset.x,
+						y: position.y + info.offset.y,
+					};
+					setPosition(newPosition);
+				}}>
 				<AnimatePresence>
+					{/* Desktop message bubble */}
 					{currentMessage && !isMobile && (
 						<motion.div
 							initial={{ opacity: 0, y: 10, scale: 0.9 }}
@@ -185,6 +119,40 @@ const AnimatedAssistantButton = () => {
 							</div>
 						</motion.div>
 					)}
+
+					{/* Enhanced tooltip for both mobile and desktop */}
+					<AnimatePresence>
+						{isTooltipVisible && (
+							<motion.div
+								initial={{ opacity: 0, y: 10, scale: 0.9 }}
+								animate={{ opacity: 1, y: 0, scale: 1 }}
+								exit={{ opacity: 0, y: 10, scale: 0.9 }}
+								transition={{ duration: 0.2 }}
+								className={`absolute ${
+									isMobile ? '-top-16' : '-top-12'
+								} right-0 bg-white/95 backdrop-blur-sm px-3 py-2 rounded-lg shadow-lg text-sm whitespace-nowrap`}
+								style={{
+									boxShadow: '0 4px 24px rgba(107, 122, 255, 0.15)',
+									border: '1px solid rgba(107, 122, 255, 0.1)',
+									zIndex: 60,
+								}}>
+								<div className='relative flex items-center gap-2'>
+									<span className='font-medium'>Baba AI Assistant</span>
+									<span className='flex items-center gap-1'>
+										<span className='w-2 h-2 bg-emerald-500 rounded-full animate-pulse'></span>
+										<span className='text-xs text-emerald-600'>Online</span>
+									</span>
+									<div
+										className='absolute -bottom-2 right-6 w-2 h-2 bg-white transform rotate-45'
+										style={{
+											borderRight: '1px solid rgba(107, 122, 255, 0.1)',
+											borderBottom: '1px solid rgba(107, 122, 255, 0.1)',
+										}}
+									/>
+								</div>
+							</motion.div>
+						)}
+					</AnimatePresence>
 				</AnimatePresence>
 
 				<motion.div
@@ -204,37 +172,44 @@ const AnimatedAssistantButton = () => {
 					{/* Main button */}
 					<button
 						onClick={toggleAssistant}
-						className='group flex items-center gap-3 p-4 rounded-2xl bg-white/95 backdrop-blur-sm shadow-lg hover:shadow-xl border border-[rgba(107,122,255,0.1)] transition-all duration-300'
+						onMouseEnter={() => setIsTooltipVisible(true)}
+						onMouseLeave={() => setIsTooltipVisible(false)}
+						className={`group relative flex items-center gap-3 ${
+							isMobile ? 'p-0 rounded-full' : 'p-4 rounded-2xl'
+						} bg-white/95 backdrop-blur-sm shadow-lg hover:shadow-xl border border-[rgba(107,122,255,0.1)] transition-all duration-300`}
 						style={{ boxShadow: '0 4px 24px rgba(107, 122, 255, 0.15)' }}>
-						<div className='w-10 h-10'>
+						<div className={`relative ${isMobile ? 'w-12 h-12' : 'w-10 h-10'}`}>
 							<Image
 								alt='Assistant Avatar'
 								src='/images/babagpt_bw.svg'
-								width={isMobile ? 48 : 48}
-								height={isMobile ? 48 : 48}
-								className={` select-none relative z-10 object-contain ${
-									isMobile ? 'w-12 h-12 p-2' : 'w-8 h-8 p-1'
-								} bg-slate-700 rounded-full`}
+								width={48}
+								height={48}
+								className='select-none relative z-10 object-contain w-full h-full p-2 bg-slate-700 rounded-full'
 								priority
 							/>
+							{/* Online indicator */}
+							<div className='absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white z-20' />
 						</div>
 
-						<div className='flex flex-col items-start'>
-							<span className='text-[15px] font-medium text-gray-800'>
-								AI Assistant
-							</span>
-							<div className='flex items-center gap-2'>
-								<span className='text-sm font-medium text-emerald-500'>
-									Online
+						{/* Desktop additional info */}
+						{!isMobile && (
+							<div className='flex flex-col items-start'>
+								<span className='text-[15px] font-medium text-gray-800'>
+									AI Assistant
 								</span>
-								<span className='text-sm text-gray-400 font-medium'>
-									• Ready to help
-								</span>
+								<div className='flex items-center gap-2'>
+									<span className='text-sm font-medium text-emerald-500'>
+										Online
+									</span>
+									<span className='text-sm text-gray-400 font-medium'>
+										• Ready to help
+									</span>
+								</div>
 							</div>
-						</div>
+						)}
 					</button>
 				</motion.div>
-			</div>
+			</motion.div>
 
 			<AlertDialog
 				open={isDialogOpen}
