@@ -80,8 +80,10 @@ const AboutUsPage = () => {
 											<Image
 												src={industry.image}
 												alt={industry.name}
-												layout='fill'
-												objectFit='cover'
+												// layout='fill'
+												// objectFit='cover'
+												width='300'
+												height='300'
 											/>
 										</div>
 										<div className='p-4'>

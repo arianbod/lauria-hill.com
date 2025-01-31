@@ -7,6 +7,7 @@ import { useAssistant } from '@/context/AssistantContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import TypingIndicator from './TypingIndicator';
 import ChatMessage from './ChatMessage';
+import Link from 'next/link';
 
 const AssistantChat = () => {
 	const { messages, sendMessage, isLoading } = useAssistant();
@@ -52,10 +53,11 @@ const AssistantChat = () => {
 				<div className='flex-1 flex items-center justify-center p-8 text-center'>
 					<div className='max-w-md mx-auto'>
 						<h3 className='text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-200'>
-							Welcome to Baba AI Assistant
+							Welcome to Lauria and Hill,
 						</h3>
 						<p className='text-base text-gray-600 dark:text-gray-400'>
-							I'm here to help you with any questions or tasks you have.
+							I'm BabaAI Assistant, I will help you with any questions or tasks
+							you have.
 						</p>
 					</div>
 				</div>
@@ -139,6 +141,11 @@ const AssistantChat = () => {
 							<ArrowBigUp className='w-6 h-6 text-white' />
 						</motion.button>
 					</div>
+					<Link
+						href='https://babaai.ca'
+						className='text-slate-900/50 text-xs text-center flex place-content-center place-items-center'>
+						Do you want to know more about BabaAI Assistant?
+					</Link>
 				</form>
 			</div>
 		</div>
