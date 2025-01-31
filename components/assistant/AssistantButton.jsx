@@ -174,6 +174,8 @@ const AnimatedAssistantButton = () => {
 						onClick={toggleAssistant}
 						onMouseEnter={() => setIsTooltipVisible(true)}
 						onMouseLeave={() => setIsTooltipVisible(false)}
+						onTouchStart={()=>setIsTooltipVisible(true)}
+						onTouchEnd={()=>setIsTooltipVisible(true)}
 						className={`group relative flex items-center gap-3 ${
 							isMobile ? 'p-0 rounded-full' : 'p-4 rounded-2xl'
 						} bg-white/95 backdrop-blur-sm shadow-lg hover:shadow-xl border border-[rgba(107,122,255,0.1)] transition-all duration-300`}
