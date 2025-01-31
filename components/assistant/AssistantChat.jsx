@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { ArrowBigUp } from 'lucide-react';
+import { ArrowBigUp, Video } from 'lucide-react';
 import { useAssistant } from '@/context/AssistantContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import TypingIndicator from './TypingIndicator';
@@ -10,7 +10,8 @@ import ChatMessage from './ChatMessage';
 import Link from 'next/link';
 
 const AssistantChat = () => {
-	const { messages, sendMessage, isLoading } = useAssistant();
+	const { messages, sendMessage, isLoading, sendConferenceNotification } =
+		useAssistant();
 	const [input, setInput] = useState('');
 	const [isComposing, setIsComposing] = useState(false);
 	const messagesEndRef = useRef(null);
@@ -44,6 +45,29 @@ const AssistantChat = () => {
 		}
 	};
 
+	const handleStartConference = async () => {
+		const currentTimestamp = new Date().getTime();
+		const conferenceUrl = `https://conf.babaai.ca/${currentTimestamp}`;
+
+		try {
+			// Get user's email from wherever you store it in your app
+			const userEmail = 'majorrafiei@gmail.com'; // Replace with actual user email
+
+			const result = await sendConferenceNotification(userEmail, conferenceUrl);
+
+			if (result.success) {
+				// You might want to show a success message or handle it in your UI
+				window.open(conferenceUrl, '_blank');
+			} else {
+				console.error('Failed to send conference notification:', result.error);
+				// Handle error in UI
+			}
+		} catch (error) {
+			console.error('Error starting conference:', error);
+			// Handle error in UI
+		}
+	};
+
 	return (
 		<div
 			className='flex flex-col h-full bg-white dark:bg-gray-900'
@@ -59,6 +83,12 @@ const AssistantChat = () => {
 							I'm BabaAI Assistant, I will help you with any questions or tasks
 							you have.
 						</p>
+						<button
+							onClick={handleStartConference}
+							className='mt-4 flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 mx-auto'>
+							<Video className='w-5 h-5' />
+							Start Video Conference
+						</button>
 					</div>
 				</div>
 			)}
@@ -148,6 +178,19 @@ const AssistantChat = () => {
 					</Link>
 				</form>
 			</div>
+
+			{/* Video conference button for non-empty chat */}
+			{messages.length > 0 && (
+				<div className='absolute bottom-20 right-4'>
+					<motion.button
+						onClick={handleStartConference}
+						whileHover={{ scale: 1.05 }}
+						whileTap={{ scale: 0.95 }}
+						className='p-3 bg-blue-600 hover:bg-blue-700 rounded-full shadow-lg text-white'>
+						<Video className='w-5 h-5' />
+					</motion.button>
+				</div>
+			)}
 		</div>
 	);
 };

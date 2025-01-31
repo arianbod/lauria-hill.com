@@ -11,7 +11,6 @@ const API_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 const AssistantContext = createContext();
 
 export const AssistantProvider = ({ children }) => {
-
     // UI States
     const [isOpen, setIsOpen] = useState(true);
     const [isMinimized, setIsMinimized] = useState(false);
@@ -23,10 +22,6 @@ export const AssistantProvider = ({ children }) => {
     const [assistantChatId, setAssistantChatId] = useState(null);
     const [messages, setMessages] = useState([]);
 
-    // Suppose we had a "welcome" message or a "notFirstTimeAssistant" flag
-    // We'll remove or simplify that so we do NOT create a chat prematurely.
-    // const [notFirstTimeAssistant, setNotFirstTimeAssistant] = useState(false);
-
     // Model configuration
     const supportModel = AIPersonas.find(
         (p) => p.key === 'claude-3-5-sonnet-latest-helper'
@@ -36,7 +31,6 @@ export const AssistantProvider = ({ children }) => {
     const toggleAssistant = useCallback(() => {
         setIsOpen((prev) => !prev);
         setIsMinimized(false);
-        // DO NOT call initializeChat here
     }, []);
 
     // Minimize/maximize assistant panel
@@ -44,20 +38,12 @@ export const AssistantProvider = ({ children }) => {
         setIsMinimized((prev) => !prev);
     }, []);
 
-    // We no longer auto-create the chat on opening. If you had
-    // a useEffect that tried to open the assistant for non-auth users,
-    // remove it or simply do not call initializeChat in it.
-
-    // ————————————————————————————————————————————
-    // If you still want a helper to create a chat manually, keep something like:
-    // ————————————————————————————————————————————
     const createNewChat = useCallback(async () => {
         try {
             setIsLoading(true);
-            // You can pass an empty string or some minimal text as "initialMessage"
             const body = {
                 userId: WEBSITE_USER,
-                initialMessage: 'Conversation started', // or just empty
+                initialMessage: 'Conversation started',
                 model: {
                     name: supportModel.name,
                     provider: supportModel.provider,
@@ -92,9 +78,6 @@ export const AssistantProvider = ({ children }) => {
         }
     }, [supportModel]);
 
-    // ————————————————————————————————————————————
-    // A small helper to do up to 3 fetch attempts
-    // ————————————————————————————————————————————
     async function tryFetchChatAPI(payload, attempt = 1) {
         try {
             const response = await fetch(`${API_URL}/api/chat`, {
@@ -108,7 +91,6 @@ export const AssistantProvider = ({ children }) => {
             return response;
         } catch (error) {
             if (attempt < 3) {
-                // exponential backoff or small delay
                 await new Promise((r) => setTimeout(r, 500 * attempt));
                 return tryFetchChatAPI(payload, attempt + 1);
             } else {
@@ -117,9 +99,6 @@ export const AssistantProvider = ({ children }) => {
         }
     }
 
-    // ————————————————————————————————————————————
-    // Handle streaming response
-    // ————————————————————————————————————————————
     const handleStreamResponse = async (response) => {
         const reader = response.body.getReader();
         const decoder = new TextDecoder();
@@ -145,7 +124,6 @@ export const AssistantProvider = ({ children }) => {
                                 !data.content.includes('stream_ended')
                             ) {
                                 accumulatedContent += data.content;
-                                // Update the last assistant message with the new chunk
                                 setMessages((prev) => {
                                     const newMessages = [...prev];
                                     const lastMessage = newMessages[newMessages.length - 1];
@@ -168,9 +146,6 @@ export const AssistantProvider = ({ children }) => {
         }
     };
 
-    // ————————————————————————————————————————————
-    // Send message
-    // ————————————————————————————————————————————
     const sendMessage = useCallback(
         async (content) => {
             if (!content?.trim() || isSending) return;
@@ -178,18 +153,15 @@ export const AssistantProvider = ({ children }) => {
             try {
                 setIsSending(true);
 
-                // 1) Create a chat if we don't have one yet
                 let tempChatId = assistantChatId;
                 if (!tempChatId) {
                     tempChatId = await createNewChat();
                     if (!tempChatId) {
-                        // If createNewChat fails, we cannot proceed
                         return;
                     }
                     setAssistantChatId(tempChatId);
                 }
 
-                // 2) Immediately add the user message to local state
                 const userMessage = {
                     id: nanoid(),
                     role: 'user',
@@ -198,7 +170,6 @@ export const AssistantProvider = ({ children }) => {
                 };
                 setMessages((prev) => [...prev, userMessage]);
 
-                // 3) Optionally add a placeholder assistant message for streaming
                 setMessages((prev) => [
                     ...prev,
                     {
@@ -209,7 +180,6 @@ export const AssistantProvider = ({ children }) => {
                     },
                 ]);
 
-                // 4) Actually call our /api/chat route with streaming
                 const payload = {
                     userId: WEBSITE_USER,
                     chatId: tempChatId,
@@ -218,12 +188,10 @@ export const AssistantProvider = ({ children }) => {
                 };
 
                 const response = await tryFetchChatAPI(payload);
-                // 5) Stream the response chunks
                 await handleStreamResponse(response);
 
             } catch (error) {
                 console.error('Error sending message:', error);
-                // Replace the placeholder assistant message with an error text
                 setMessages((prev) => [
                     ...prev,
                     {
@@ -242,9 +210,43 @@ export const AssistantProvider = ({ children }) => {
         [assistantChatId, isSending, createNewChat, supportModel]
     );
 
-    // ————————————————————————————————————————————
-    // Reset assistant
-    // ————————————————————————————————————————————
+    const sendConferenceNotification = useCallback(async (email, conferenceUrl) => {
+        try {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/conference-notification`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email,
+                    conferenceUrl
+                })
+            });
+
+            if (!response.ok) {
+                const error = await response.json();
+                toast.error(error.message || 'Failed to send conference notification');
+                throw new Error(error.message || 'Failed to send conference notification');
+            }
+
+            const result = await response.json();
+            toast.success('Conference notification sent successfully');
+            return {
+                success: true,
+                message: 'Conference notification sent successfully',
+                details: result.details
+            };
+
+        } catch (error) {
+            console.error('Error sending conference notification:', error);
+            return {
+                success: false,
+                error: error.message || 'Failed to send conference notification',
+                details: process.env.NODE_ENV === 'development' ? error : undefined
+            };
+        }
+    }, []);
+
     const resetAssistant = useCallback(() => {
         setMessages([]);
         setAssistantChatId(null);
@@ -257,14 +259,13 @@ export const AssistantProvider = ({ children }) => {
     const value = {
         isOpen,
         isMinimized,
-        // Combine loading states if you want: isLoading or isSending
         isLoading: isLoading || isSending,
         messages,
         toggleAssistant,
         toggleMinimize,
         sendMessage,
         resetAssistant,
-        // some UI can detect if user is logged in
+        sendConferenceNotification,
         isLoggedIn: false,
     };
 
