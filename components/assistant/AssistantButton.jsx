@@ -16,16 +16,16 @@ import {
 import Image from 'next/image';
 
 const ASSISTANT_MESSAGES = [
-	'👋 Need help finding something?',
-	'🌟 Check out our amazing deals!',
-	'💡 I can help you compare products',
-	'🎁 Want to see our newest arrivals?',
-	'💬 Ask me anything about our products!',
-	'🔍 Looking for something specific?',
-	'⭐ I can find the perfect match for you',
-	'📦 Free shipping on orders over $50!',
-	'🏷️ Exclusive deals just for you',
-	'💫 Let me help you find the best options',
+	'👋 I can answer all of your question!',
+	// '🌟 Check out our amazing deals!',
+	// '💡 I can help you compare products',
+	// '🎁 Want to see our newest arrivals?',
+	// '💬 Ask me anything about our products!',
+	// '🔍 Looking for something specific?',
+	// '⭐ I can find the perfect match for you',
+	// '📦 Free shipping on orders over $50!',
+	// '🏷️ Exclusive deals just for you',
+	// '💫 Let me help you find the best options',
 ];
 
 const AnimatedAssistantButton = () => {
