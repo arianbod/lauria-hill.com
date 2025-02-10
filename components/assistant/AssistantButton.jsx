@@ -97,8 +97,9 @@ const AnimatedAssistantButton = () => {
 				}}>
 				<AnimatePresence>
 					{/* Desktop message bubble */}
-					{currentMessage && !isMobile && (
+					{currentMessage && (
 						<motion.div
+							onClick={toggleAssistant}
 							initial={{ opacity: 0, y: 10, scale: 0.9 }}
 							animate={{ opacity: 1, y: 0, scale: 1 }}
 							exit={{ opacity: 0, y: 10, scale: 0.9 }}
@@ -174,8 +175,8 @@ const AnimatedAssistantButton = () => {
 						onClick={toggleAssistant}
 						onMouseEnter={() => setIsTooltipVisible(true)}
 						onMouseLeave={() => setIsTooltipVisible(false)}
-						onTouchStart={()=>setIsTooltipVisible(true)}
-						onTouchEnd={()=>setIsTooltipVisible(true)}
+						onTouchStart={() => setIsTooltipVisible(true)}
+						onTouchEnd={() => setIsTooltipVisible(true)}
 						className={`group relative flex items-center gap-3 ${
 							isMobile ? 'p-0 rounded-full' : 'p-4 rounded-2xl'
 						} bg-white/95 backdrop-blur-sm shadow-lg hover:shadow-xl border border-[rgba(107,122,255,0.1)] transition-all duration-300`}
