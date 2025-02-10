@@ -57,24 +57,24 @@ const AnimatedAssistantButton = () => {
 	}, []);
 
 	// Message rotation (only for desktop)
-	useEffect(() => {
-		if (isMobile) return;
+	// useEffect(() => {
+	// 	if (isMobile) return;
 
-		let messageTimeout;
-		const rotateMessage = () => {
-			const newMessage =
-				ASSISTANT_MESSAGES[
-					Math.floor(Math.random() * ASSISTANT_MESSAGES.length)
-				];
-			setTimeout(() => {
-				setCurrentMessage(newMessage);
-			}, 500);
-			messageTimeout = setTimeout(rotateMessage, 8000);
-		};
+	// 	let messageTimeout;
+	// 	const rotateMessage = () => {
+	// 		const newMessage =
+	// 			ASSISTANT_MESSAGES[
+	// 				Math.floor(Math.random() * ASSISTANT_MESSAGES.length)
+	// 			];
+	// 		setTimeout(() => {
+	// 			setCurrentMessage(newMessage);
+	// 		}, 500);
+	// 		messageTimeout = setTimeout(rotateMessage, 8000);
+	// 	};
 
-		rotateMessage();
-		return () => clearTimeout(messageTimeout);
-	}, [isMobile]);
+	// 	rotateMessage();
+	// 	return () => clearTimeout(messageTimeout);
+	// }, [isMobile]);
 
 	if (!isButtonVisible) return null;
 
