@@ -11,7 +11,7 @@ const AssistantContext = createContext();
 
 export const AssistantProvider = ({ children }) => {
     // UI States
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
     const [isMinimized, setIsMinimized] = useState(false);
     // "IsLoading" used to display spinner or "Assistant typing"
     const [isLoading, setIsLoading] = useState(false);
