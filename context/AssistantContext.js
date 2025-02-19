@@ -5,7 +5,7 @@ import { nanoid } from 'nanoid';
 import { AIPersonas } from '@/lib/Personas';
 import toast from 'react-hot-toast';
 
-const WEBSITE_USER = process.env.WEBSITE_USER || 'babagpt.ai';
+const WEBSITE_USER = process.env.WEBSITE_USER || 'cm7bzh1a00000godq8815poqt';
 const API_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 const AssistantContext = createContext();
 
