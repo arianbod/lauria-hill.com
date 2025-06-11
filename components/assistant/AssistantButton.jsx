@@ -138,7 +138,7 @@ const AnimatedAssistantButton = () => {
 									zIndex: 60,
 								}}>
 								<div className='relative flex items-center gap-2'>
-									<span className='font-medium'>Baba AI Assistant</span>
+									<span className='font-medium'>Baba AI Agent</span>
 									<span className='flex items-center gap-1'>
 										<span className='w-2 h-2 bg-emerald-500 rounded-full animate-pulse'></span>
 										<span className='text-xs text-emerald-600'>Online</span>
@@ -198,7 +198,7 @@ const AnimatedAssistantButton = () => {
 						{!isMobile && (
 							<div className='flex flex-col items-start'>
 								<span className='text-[15px] font-medium text-gray-800'>
-									AI Assistant
+									AI Agent
 								</span>
 								<div className='flex items-center gap-2'>
 									<span className='text-sm font-medium text-emerald-500'>
