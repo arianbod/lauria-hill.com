@@ -11,11 +11,11 @@ const contactPersons = [
 		role: 'Sales/Engineering',
 		email: 'eciasca@lauria-hill.com',
 	},
-	{
-		name: 'Mario Scola',
-		role: 'Sales/Engineering',
-		email: 'mjscola@lauria-hill.com',
-	},
+	// {
+	// 	name: 'Mario Scola',
+	// 	role: 'Sales/Engineering',
+	// 	email: 'mjscola@lauria-hill.com',
+	// },
 	{
 		name: 'Marco Ciasca',
 		role: 'Purchasing Manager',
