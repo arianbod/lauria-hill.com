@@ -121,7 +121,7 @@ const AnimatedAssistantButton = () => {
 	};
 
 	// Handle badge dismiss
-	const handleBadgeDismiss = (e: React.MouseEvent) => {
+	const handleBadgeDismiss = (e) => {
 		e.stopPropagation();
 		setShowPersistentBadge(false);
 		localStorage.setItem('aiAgentInteracted', 'true');
