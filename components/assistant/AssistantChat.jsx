@@ -91,7 +91,7 @@ const AssistantChat = () => {
 							Welcome to Lauria and Hill,
 						</h3>
 						<p className='text-base text-gray-600 dark:text-gray-400'>
-							I'm BabaAI Assistant, I will help you with any questions or tasks
+							I'm BabaAI Agent, I will help you with any questions or tasks
 							you have.
 						</p>
 						<button
@@ -185,7 +185,7 @@ const AssistantChat = () => {
 					<Link
 						href='https://babaai.ca'
 						className='text-slate-900/50 text-xs text-center flex place-content-center place-items-center'>
-						Do you want to know more about BabaAI Assistant?
+						Do you want to know more about BabaAI Agent?
 					</Link>
 				</form>
 			</div>
