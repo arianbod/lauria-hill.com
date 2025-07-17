@@ -38,17 +38,17 @@ export default function RootLayout({
 				className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}>
 				<Navigation />
 				<main className='min-h-screen bg-gradient-to-b from-slate-700 to-gray-700 text-white pt-24'>
-					<Providers>
-						<Toaster
-							position='top-center'
-							containerClassName={'ltr'}
-							toastOptions={{
-								className: 'ltr',
-							}}
-						/>
-						{children}
-						{/* <AssistantWrapper /> */}
-					</Providers>
+					{/* <Providers> */}
+					<Toaster
+						position='top-center'
+						containerClassName={'ltr'}
+						toastOptions={{
+							className: 'ltr',
+						}}
+					/>
+					{children}
+					{/* <AssistantWrapper /> */}
+					{/* </Providers> */}
 					<Footer />
 					<Script
 						src='https://babaai.ca/cdn/voice-assistant-bundle.js'
